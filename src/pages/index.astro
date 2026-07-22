@@ -181,11 +181,12 @@ import {
 
     <section class="freelance" id="hire">
       <div class="wrap">
-        <p class="section-label">Freelance</p>
+        <p class="section-label">Opportunities</p>
         <h2 class="section-title">{freelance.headline}</h2>
         <p class="section-lead">{freelance.body}</p>
         <div class="contact-row">
-          <a class="btn btn-primary" href={site.links.guru} target="_blank" rel="noopener noreferrer"
+          <a class="btn btn-primary" href={site.links.email}>{site.links.emailLabel}</a>
+          <a class="btn btn-ghost" href={site.links.guru} target="_blank" rel="noopener noreferrer"
             >View Guru profile</a
           >
           <a class="btn btn-ghost" href={site.links.github} target="_blank" rel="noopener noreferrer"
@@ -203,7 +204,7 @@ import {
       <div class="footer-links">
         <a href={site.links.github} target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href={site.links.guru} target="_blank" rel="noopener noreferrer">Guru</a>
-        <a href={site.links.email}>Email</a>
+        <a href={site.links.email}>{site.links.emailLabel}</a>
       </div>
     </div>
   </footer>

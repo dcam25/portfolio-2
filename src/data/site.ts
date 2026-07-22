@@ -12,8 +12,8 @@ export const site = {
   links: {
     github: "https://github.com/dcam25",
     guru: "https://www.guru.com/freelancers/dane-cameron",
-    // Update this to your real Gmail address
-    email: "mailto:dane.c.cameron@gmail.com",
+    email: "mailto:dcamvals25@gmail.com",
+    emailLabel: "dcamvals25@gmail.com",
   },
 };
 
@@ -133,6 +133,6 @@ export const projects = [
 ];
 
 export const freelance = {
-  headline: "Available for freelance & contract work",
-  body: "Full-stack development, AI integrations, SaaS platforms, DevOps, and workflow automation — via Guru or direct.",
+  headline: "Available for full-time and part-time roles",
+  body: "Open to full-time and part-time opportunities in DevSecOps, developer platforms, and full-stack engineering — plus freelance and contract work via Guru or direct email.",
 };
