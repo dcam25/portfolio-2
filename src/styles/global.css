@@ -183,7 +183,7 @@ a {
   font-weight: 400;
   font-size: clamp(2.35rem, 5.4vw, 4.35rem);
   line-height: 1.05;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.04em;
   white-space: nowrap;
   margin: 0 0 1rem;
   opacity: 0;
