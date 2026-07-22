@@ -20,30 +20,69 @@ export const site = {
 export const competencies = [
   {
     title: "Developer Platform & Tooling",
-    items:
-      "Repository onboarding, workflow templates, container base images, paved-road docs, DX improvements, internal automation APIs",
+    items: [
+      "Repository onboarding",
+      "Workflow templates",
+      "Container base images",
+      "Paved-road docs",
+      "DX improvements",
+      "Internal automation APIs",
+    ],
   },
   {
     title: "Languages",
-    items: "Python (FastAPI, Django, Flask), TypeScript/JavaScript (Node.js, React, Next.js), Bash",
+    items: [
+      "Python",
+      "FastAPI",
+      "Django",
+      "Flask",
+      "TypeScript",
+      "JavaScript",
+      "Node.js",
+      "React",
+      "Next.js",
+      "Bash",
+    ],
   },
   {
     title: "Infrastructure as Code",
-    items: "Pulumi, Terraform, CloudFormation — modules, state management, policy-as-code",
+    items: [
+      "Pulumi",
+      "Terraform",
+      "CloudFormation",
+      "Modules",
+      "State management",
+      "Policy-as-code",
+    ],
   },
   {
     title: "CI/CD & Artifacts",
-    items:
-      "GitHub Actions, JFrog Artifactory, Jenkins, ephemeral Docker runners, image promotion, vulnerability scanning",
+    items: [
+      "GitHub Actions",
+      "JFrog Artifactory",
+      "Jenkins",
+      "Ephemeral Docker runners",
+      "Image promotion",
+      "Vulnerability scanning",
+    ],
   },
   {
     title: "Cloud & Containers",
-    items: "AWS (VPC, IAM, EC2, S3, EKS, ECS, KMS), Docker, Kubernetes",
+    items: ["AWS", "VPC", "IAM", "EC2", "S3", "EKS", "ECS", "KMS", "Docker", "Kubernetes"],
   },
   {
     title: "Security & Compliance",
-    items:
-      "SAST/DAST (Checkov, tfsec), OWASP Top 10, OAuth2/OIDC, Vault, IAM/RBAC, SOC2, NIST",
+    items: [
+      "SAST/DAST",
+      "Checkov",
+      "tfsec",
+      "OWASP Top 10",
+      "OAuth2/OIDC",
+      "Vault",
+      "IAM/RBAC",
+      "SOC2",
+      "NIST",
+    ],
   },
 ];
 

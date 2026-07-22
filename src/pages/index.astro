@@ -91,7 +91,13 @@ import {
             competencies.map((item) => (
               <article class="skill">
                 <h3>{item.title}</h3>
-                <p>{item.items}</p>
+                <ul class="skill-tags">
+                  {item.items.map((skill) => (
+                    <li>
+                      <span class="skill-tag">{skill}</span>
+                    </li>
+                  ))}
+                </ul>
               </article>
             ))
           }
