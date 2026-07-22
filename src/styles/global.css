@@ -9,6 +9,7 @@
   --accent-soft: rgba(58, 168, 154, 0.16);
   --warm: #d4b483;
   --font-display: "Syne", system-ui, sans-serif;
+  --font-name: "Instrument Serif", Georgia, "Times New Roman", serif;
   --font-body: "Outfit", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
   --max: 72rem;
@@ -145,13 +146,16 @@ a {
 .hero-content {
   position: relative;
   max-width: 40rem;
+  min-width: 0;
+  z-index: 1;
 }
 
 .hero-portrait {
   justify-self: end;
-  width: min(100%, 28rem);
+  width: min(100%, 26rem);
   opacity: 0;
   animation: photo-in 1s var(--ease) 0.25s forwards;
+  z-index: 0;
 }
 
 .hero-photo {
@@ -178,11 +182,11 @@ a {
 .hero-name {
   display: flex;
   flex-direction: column;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(3.75rem, 11vw, 7.25rem);
-  line-height: 0.88;
-  letter-spacing: -0.04em;
+  font-family: var(--font-name);
+  font-weight: 400;
+  font-size: clamp(3.25rem, 7.5vw, 5.75rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
   margin: 0 0 1.15rem;
   opacity: 0;
   animation: rise 0.9s var(--ease) 0.2s forwards;
@@ -190,6 +194,7 @@ a {
 
 .hero-name span {
   display: block;
+  white-space: nowrap;
 }
 
 .hero-title {
