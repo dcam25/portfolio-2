@@ -5,6 +5,8 @@ export const site = {
   location: "Dallas, Texas",
   phone: "(305) 710-8496",
   phoneHref: "tel:+13057108496",
+  portrait: "/portrait.jpg",
+  portraitAlt: "Dane C Cameron, professional headshot",
   summary:
     "Hands-on DevSecOps engineer with 12 years of experience building developer platform capabilities, CI/CD pipelines, and production infrastructure that help engineering teams ship faster and more securely.",
   links: {

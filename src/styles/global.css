@@ -137,20 +137,38 @@ a {
   min-height: min(100vh, 52rem);
   display: grid;
   align-items: end;
-  padding: 5rem 0 4.5rem;
   overflow: hidden;
+  isolation: isolate;
 }
 
-.hero-glow {
+.hero-photo {
   position: absolute;
-  width: min(42rem, 90vw);
-  height: min(42rem, 90vw);
-  right: -12%;
-  top: 8%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(58, 168, 154, 0.22), transparent 68%);
-  animation: drift 14s ease-in-out infinite alternate;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center 18%;
+  z-index: 0;
+  animation: photo-in 1.2s var(--ease) both;
+}
+
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(8, 12, 22, 0.92) 0%, rgba(8, 12, 22, 0.72) 42%, rgba(8, 12, 22, 0.28) 72%, rgba(8, 12, 22, 0.45) 100%),
+    linear-gradient(180deg, rgba(8, 12, 22, 0.35) 0%, transparent 28%, rgba(8, 12, 22, 0.88) 100%);
   pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  width: min(100% - 2.5rem, var(--max));
+  margin-inline: auto;
+  padding: 5rem 0 4.5rem;
 }
 
 .hero-content {
@@ -509,12 +527,14 @@ section {
   }
 }
 
-@keyframes drift {
+@keyframes photo-in {
   from {
-    transform: translate(0, 0) scale(1);
+    opacity: 0;
+    transform: scale(1.06);
   }
   to {
-    transform: translate(-4%, 6%) scale(1.08);
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -529,9 +549,22 @@ section {
   .hero-lead,
   .cta-row,
   .meta-bar,
-  .hero-glow {
+  .hero-photo {
     animation: none;
     opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-photo {
+    object-position: center 12%;
+  }
+
+  .hero-scrim {
+    background:
+      linear-gradient(180deg, rgba(8, 12, 22, 0.45) 0%, rgba(8, 12, 22, 0.55) 35%, rgba(8, 12, 22, 0.94) 100%),
+      linear-gradient(90deg, rgba(8, 12, 22, 0.55), transparent 80%);
   }
 }
 
@@ -541,9 +574,13 @@ section {
   }
 
   .hero {
-    min-height: auto;
-    padding: 3.5rem 0 3rem;
-    align-items: start;
+    min-height: min(100svh, 44rem);
+    align-items: end;
+  }
+
+  .hero-inner {
+    width: min(100% - 1.5rem, var(--max));
+    padding: 3.5rem 0 2.75rem;
   }
 
   .nav-links {

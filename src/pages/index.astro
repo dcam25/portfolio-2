@@ -26,26 +26,36 @@ import {
   </header>
 
   <main id="main">
-    <section class="hero wrap" id="top" aria-label="Introduction">
-      <div class="hero-glow" aria-hidden="true"></div>
-      <div class="hero-content">
-        <p class="hero-kicker">{site.location}</p>
-        <h1 class="hero-name">{site.name}</h1>
-        <p class="hero-title">{site.title} · {site.tagline}</p>
-        <p class="hero-lead">{site.summary}</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href={site.links.github} target="_blank" rel="noopener noreferrer"
-            >GitHub</a
-          >
-          <a class="btn btn-ghost" href={site.links.guru} target="_blank" rel="noopener noreferrer"
-            >Hire on Guru</a
-          >
-          <a class="btn btn-ghost" href={site.links.email}>Email</a>
-        </div>
-        <div class="meta-bar">
-          <span>{site.location}</span>
-          <a href={site.phoneHref}>{site.phone}</a>
-          <a href={site.links.github} target="_blank" rel="noopener noreferrer">github.com/dcam25</a>
+    <section class="hero" id="top" aria-label="Introduction">
+      <img
+        class="hero-photo"
+        src={site.portrait}
+        alt={site.portraitAlt}
+        width="1200"
+        height="1200"
+        fetchpriority="high"
+      />
+      <div class="hero-scrim" aria-hidden="true"></div>
+      <div class="wrap hero-inner">
+        <div class="hero-content">
+          <p class="hero-kicker">{site.location}</p>
+          <h1 class="hero-name">{site.name}</h1>
+          <p class="hero-title">{site.title} · {site.tagline}</p>
+          <p class="hero-lead">{site.summary}</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href={site.links.github} target="_blank" rel="noopener noreferrer"
+              >GitHub</a
+            >
+            <a class="btn btn-ghost" href={site.links.guru} target="_blank" rel="noopener noreferrer"
+              >Hire on Guru</a
+            >
+            <a class="btn btn-ghost" href={site.links.email}>Email</a>
+          </div>
+          <div class="meta-bar">
+            <span>{site.location}</span>
+            <a href={site.phoneHref}>{site.phone}</a>
+            <a href={site.links.github} target="_blank" rel="noopener noreferrer">github.com/dcam25</a>
+          </div>
         </div>
       </div>
     </section>
