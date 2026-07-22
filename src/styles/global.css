@@ -176,14 +176,20 @@ a {
 }
 
 .hero-name {
+  display: flex;
+  flex-direction: column;
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(2.75rem, 8vw, 5.25rem);
-  line-height: 0.95;
-  letter-spacing: -0.03em;
-  margin: 0 0 1rem;
+  font-size: clamp(3.75rem, 11vw, 7.25rem);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  margin: 0 0 1.15rem;
   opacity: 0;
   animation: rise 0.9s var(--ease) 0.2s forwards;
+}
+
+.hero-name span {
+  display: block;
 }
 
 .hero-title {
