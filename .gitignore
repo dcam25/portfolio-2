@@ -26,3 +26,7 @@ npm-install.log
 
 # jetbrains setting folder
 .idea/
+
+/scripts
+/resumes
+/docs
