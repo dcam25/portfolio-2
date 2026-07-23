@@ -8,10 +8,10 @@ export const site = {
   portrait: "/portrait.jpg",
   portraitAlt: "Dane C Cameron, professional headshot",
   summary:
-    "Senior Full Stack Software Engineer with 12 years designing, building, and maintaining customer-facing web applications. Strong mix of C#, React, Next.js, and SQL Server for ecommerce-style B2C and trust-sensitive product features: schema design, complex queries, and performance optimization. Ships with GitHub Actions / Azure DevOps-class CI/CD, Terraform/Bicep, Azure and AWS, Redis, and Elastic. Experienced in healthcare-, fintech-, and identity-adjacent delivery with careful handling of sensitive data.",
+    "Hands-on Senior Full Stack Engineer with 12 years shipping production web apps end-to-end — React/TypeScript UIs, Node.js or C#/.NET APIs, and SQL — on AWS and Azure. Strongest at owning features from design through production: clear tradeoffs, measurable performance, gated CI/CD, and reliable systems in healthcare-, fintech-, and identity-adjacent products.",
   about: [
-    "I own full-stack web features across C# ASP.NET Core APIs, React/Next.js UIs, and SQL Server — from design through production support, including query tuning, Redis caching, and Elastic-style search/logging under growth.",
-    "I review code, mentor engineers, troubleshoot production, and contribute to technical standards. Comfortable in regulated and high-stakes domains (healthcare, fintech, identity) as well as ecommerce-style B2C product work. MS and BS in Computer Science from Western Governors University (Salt Lake City, UT).",
+    "I build customer-facing and internal product software as an IC: React/Next.js on the front, APIs and SQL in the middle, cloud delivery and monitoring so releases stay boring. Recent work includes regulated environments (SOC2/NIST), practical RAG helpers with guardrails, and mentoring through code review.",
+    "Stack I reach for most: TypeScript, React, Node.js, C# / ASP.NET Core, Python, SQL Server, AWS, Azure, Docker, Terraform/Pulumi, GitHub Actions. Open to remote Senior Software Engineer / Full-Stack roles in the U.S. MS and BS in Computer Science (WGU, Salt Lake City, UT).",
   ],
   domains: [
     {
@@ -163,7 +163,9 @@ export const experience = [
     location: "Bellevue, WA",
     dates: "Dec 2014 – May 2017",
     bullets: [
-      "Operated production identity infrastructure at about 99.9% uptime, building reliability and on-call habits used in senior full-stack ownership.",
+      "Provisioned, patched, and operated Linux fleets for identity production systems (~99.9% uptime on owned hosts).",
+      "Built monitoring, backup/restore drills, host hardening, and on-call runbooks — reliability habits still used in senior full-stack delivery.",
+      "Automated baselines so new servers matched known-good config instead of manual snowflakes.",
     ],
   },
 ];
