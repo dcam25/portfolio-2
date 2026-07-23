@@ -1,10 +1,11 @@
 # Dane C Cameron — Portfolio
 
-Simple Astro portfolio for DevSecOps / developer platform work.
+Astro portfolio for Senior .NET / React web development.
 
 ## Links
 
 - [GitHub](https://github.com/dcam25)
+- [LinkedIn](https://linkedin.com/in/dane-cameron)
 - [Guru](https://www.guru.com/freelancers/dane-cameron)
 
 ## Develop

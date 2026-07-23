@@ -36,8 +36,8 @@ import {
           <a class="btn btn-primary" href={site.links.github} target="_blank" rel="noopener noreferrer"
             >GitHub</a
           >
-          <a class="btn btn-ghost" href={site.links.guru} target="_blank" rel="noopener noreferrer"
-            >Hire on Guru</a
+          <a class="btn btn-ghost" href={site.links.linkedin} target="_blank" rel="noopener noreferrer"
+            >LinkedIn</a
           >
           <a class="btn btn-ghost" href={site.links.email}>Email</a>
         </div>
@@ -63,17 +63,9 @@ import {
     <section id="about">
       <div class="wrap">
         <p class="section-label">About</p>
-        <h2 class="section-title">Platform engineering that ships securely</h2>
+        <h2 class="section-title">React frontends, .NET APIs, end-to-end ownership</h2>
         <div class="about-text">
-          <p>
-            I partner with application teams to onboard repositories, standardize workflows, and
-            create paved-road tooling in Python, TypeScript, GitHub Actions, Pulumi, Docker, AWS, and
-            JFrog Artifactory.
-          </p>
-          <p>
-            Experienced in regulated environments (SOC2, NIST) with audit-ready change control,
-            security scanning, and operational runbooks. MS + BS in Computer Science.
-          </p>
+          {site.about.map((paragraph) => <p>{paragraph}</p>)}
         </div>
       </div>
     </section>
@@ -83,8 +75,8 @@ import {
         <p class="section-label">Core competencies</p>
         <h2 class="section-title">Tech stack & focus areas</h2>
         <p class="section-lead">
-          Developer platforms, secure pipelines, and cloud infrastructure built for teams that need
-          to move fast without cutting corners.
+          React and TypeScript on the client, C# ASP.NET Core on the server — with solid data,
+          auth, and delivery practices.
         </p>
         <div class="skills-grid">
           {
@@ -108,10 +100,10 @@ import {
     <section id="experience">
       <div class="wrap">
         <p class="section-label">Experience</p>
-        <h2 class="section-title">12 years shipping infrastructure & platforms</h2>
+        <h2 class="section-title">12 years shipping web apps & APIs</h2>
         <p class="section-lead">
-          From Auth0 through HashiCorp and Cloudrise — building CI/CD, cloud foundations, and
-          developer experience.
+          From Auth0 through HashiCorp and Cloudrise — React UIs, ASP.NET Core services, and
+          production delivery.
         </p>
         <div class="timeline">
           {
@@ -141,8 +133,7 @@ import {
         <p class="section-label">Selected work</p>
         <h2 class="section-title">Projects on GitHub</h2>
         <p class="section-lead">
-          A few public builds — platforms, AI interfaces, and infrastructure docs.
-          More on{" "}
+          React and Next.js products with API backends. More on{" "}
           <a href={site.links.github} target="_blank" rel="noopener noreferrer">github.com/dcam25</a>.
         </p>
         <div class="projects-grid">
@@ -190,8 +181,11 @@ import {
         <p class="section-lead">{freelance.body}</p>
         <div class="contact-row">
           <a class="btn btn-primary" href={site.links.email}>{site.links.emailLabel}</a>
+          <a class="btn btn-ghost" href={site.links.linkedin} target="_blank" rel="noopener noreferrer"
+            >LinkedIn</a
+          >
           <a class="btn btn-ghost" href={site.links.guru} target="_blank" rel="noopener noreferrer"
-            >View Guru profile</a
+            >Guru</a
           >
           <a class="btn btn-ghost" href={site.links.github} target="_blank" rel="noopener noreferrer"
             >GitHub</a
@@ -207,6 +201,7 @@ import {
       <p>© {new Date().getFullYear()} {site.name}</p>
       <div class="footer-links">
         <a href={site.links.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href={site.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href={site.links.guru} target="_blank" rel="noopener noreferrer">Guru</a>
         <a href={site.links.email}>{site.links.emailLabel}</a>
       </div>
