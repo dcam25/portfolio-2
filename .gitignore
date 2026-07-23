@@ -16,7 +16,6 @@ npm-install.log
 # local npm cache
 .npm-cache/
 
-
 # environment variables
 .env
 .env.production
@@ -27,6 +26,8 @@ npm-install.log
 # jetbrains setting folder
 .idea/
 
+# local tooling / private materials
 /scripts
 /resumes
 /docs
+.venv-resume/
