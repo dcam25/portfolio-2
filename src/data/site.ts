@@ -1,17 +1,17 @@
 export const site = {
   name: "Dane C Cameron",
-  title: "Senior .NET / React Web Developer",
-  tagline: "C#, ASP.NET Core, TypeScript & React",
+  title: "Senior Full Stack Engineer",
+  tagline: "Python, React, .NET & AWS",
   location: "Dallas, Texas",
   phone: "(305) 710-8496",
   phoneHref: "tel:+13057108496",
   portrait: "/portrait.jpg",
   portraitAlt: "Dane C Cameron, professional headshot",
   summary:
-    "Senior Web Developer with 12 years building production web applications across React frontends and .NET, Python, and Node backends. Strong in C#, ASP.NET Core, Python (FastAPI, Django), TypeScript, and React, with end-to-end ownership of UI, APIs, data access, auth, and CI/CD on AWS.",
+    "Senior Full Stack Engineer with 12 years building production applications across Python backends and React frontends, with strong .NET and Node experience as well. Strong in Python (FastAPI, Django), C# ASP.NET Core, TypeScript, and React, with end-to-end ownership of UI, APIs, AWS delivery (Lambda, S3, ECS), and CI/CD. Experienced mentoring via code review, Agile consulting-style delivery, root-cause debugging, and productive AI tooling with guardrails.",
   about: [
-    "I design and ship React and TypeScript UIs backed by ASP.NET Core, Python, and Node.js APIs — owning features from screen to service and production release.",
-    "Experienced improving UI performance, designing maintainable API contracts, collaborating with Product and Design, and raising quality through code review and automated checks. Comfortable in regulated delivery (SOC2, NIST) and fast product teams. MS + BS in Computer Science.",
+    "I design and ship React and TypeScript UIs backed by Python, ASP.NET Core, and Node.js APIs — owning features from requirements through production release.",
+    "Comfortable with distributed teams and regulated environments (SOC2, NIST). MS and BS in Computer Science from Western Governors University.",
   ],
   links: {
     github: "https://github.com/dcam25",
@@ -34,53 +34,34 @@ export const competencies = [
       "CSS3",
       "Responsive UI",
       "SSR",
-      "Lighthouse tuning",
+      "Lighthouse performance",
     ],
   },
   {
-    title: ".NET Backend",
-    items: [
-      "C#",
-      "ASP.NET Core",
-      "Web API",
-      "Entity Framework",
-      "REST services",
-      "Dependency injection",
-      "Middleware",
-      "Configuration",
-    ],
-  },
-  {
-    title: "Python & Node",
+    title: "Python Backend",
     items: [
       "Python",
       "FastAPI",
       "Django",
       "Flask",
-      "Node.js",
       "REST APIs",
       "Celery",
-      "LangChain",
-      "RAG",
+      "Input validation",
+      "Structured logging",
     ],
   },
   {
+    title: ".NET & Node",
+    items: ["C#", "ASP.NET Core", "Web API", "Entity Framework", "Node.js", "Middleware", "DI"],
+  },
+  {
     title: "APIs & Auth",
-    items: [
-      "REST",
-      "GraphQL",
-      "gRPC",
-      "OAuth2",
-      "OIDC",
-      "JWT",
-      "Third-party integrations",
-    ],
+    items: ["REST", "GraphQL", "gRPC", "OAuth2", "OIDC", "JWT", "Third-party integrations"],
   },
   {
     title: "Cloud & Data",
     items: [
-      "AWS",
-      "Lambda",
+      "AWS Lambda",
       "S3",
       "ECS",
       "EC2",
@@ -88,14 +69,14 @@ export const competencies = [
       "VPC",
       "Docker",
       "Kubernetes",
-      "SQL Server",
       "PostgreSQL",
       "MySQL",
+      "SQL Server",
       "Redis",
     ],
   },
   {
-    title: "Delivery & Quality",
+    title: "Delivery & AI",
     items: [
       "GitHub Actions",
       "CI/CD",
@@ -104,8 +85,11 @@ export const competencies = [
       "Terraform",
       "Unit tests",
       "SAST",
-      "Code review",
       "Agile/Scrum",
+      "Code review",
+      "LangChain",
+      "LangSmith",
+      "RAG",
       "SOC2",
       "NIST",
     ],
@@ -118,11 +102,10 @@ export const experience = [
     company: "Cloudrise",
     dates: "Oct 2023 – Apr 2026",
     bullets: [
-      "Built and maintained React and TypeScript web UIs backed by ASP.NET Core and Node.js APIs, owning features from screen to service and production release.",
-      "Designed C# ASP.NET Core Web APIs with clear contracts, validation, and secure auth (OAuth2 and OIDC) for internal platform and operator workflows.",
-      "Integrated React clients with .NET and REST endpoints, keeping frontend and backend models aligned for maintainable delivery.",
-      "Improved release quality with GitHub Actions checks and gated promotions for web and API services.",
-      "Mentored teammates through React and C# PR review; supported SOC2 Type II and NIST evidence for owned web and API paths.",
+      "Built React/TypeScript UIs backed by Python and Node APIs, owning features from requirements through production release.",
+      "Designed Python FastAPI services with clear contracts, validation, and OAuth2/OIDC auth for platform and operator workflows.",
+      "Delivered AWS paths using Lambda and S3 with GitHub Actions gated promotions, reducing failed deploys from environment drift.",
+      "Mentored through Python/React code review; packaged LangChain/LangSmith RAG tooling with data-masking guardrails; supported SOC2/NIST evidence.",
     ],
   },
   {
@@ -130,11 +113,10 @@ export const experience = [
     company: "HashiCorp",
     dates: "May 2020 – Jun 2023",
     bullets: [
-      "Developed React-facing product experiences and backend APIs in C# ASP.NET Core and Node.js supporting high daily traffic.",
-      "Built ASP.NET Core Web APIs with SQL-backed data access, validation, and auth controls consumed by React UIs.",
-      "Profiled and optimized hot paths across web and API layers, cutting inter-service latency about 35% and reducing peak timeouts.",
-      "Raised delivery quality with unit tests, SAST, and OAuth2/OIDC checks in CI, reducing common OWASP Top 10 issues about 60% on those codepaths.",
-      "Reviewed React/TypeScript and C#/.NET PRs with actionable feedback; owned production readiness with monitoring and runbooks.",
+      "Developed Python services (FastAPI, Django) and React experiences supporting high daily traffic over a multi-year tenure.",
+      "Built REST APIs with SQL-backed data access and auth for React clients; cut inter-service latency about 35% on profiled paths.",
+      "Added unit tests, SAST, and OAuth2/OIDC CI checks, reducing common OWASP Top 10 issues about 60% on changed codepaths.",
+      "Migrated delivery onto AWS with Docker and CI/CD to about 99.8% pipeline reliability; mentored juniors and drove root-cause fixes from logs and metrics.",
     ],
   },
   {
@@ -142,10 +124,9 @@ export const experience = [
     company: "Checkr",
     dates: "Aug 2017 – Feb 2020",
     bullets: [
-      "Built customer-facing React, Next.js, and TypeScript web applications with supporting .NET and API backends for sensitive product workflows.",
-      "Implemented and consumed ASP.NET Core style Web APIs alongside GraphQL and gRPC integrations with hardened validation.",
-      "Improved page performance with SSR and payload reduction, raising key Lighthouse scores from about 55 to about 92.",
-      "Helped migrate web and API services to AWS with CI/CD; added logging and alerts that cut MTTR about 45%.",
+      "Built React, Next.js, and TypeScript apps with API backends for sensitive workflows; hardened REST/GraphQL/gRPC validation.",
+      "Raised Lighthouse scores from about 55 to about 92 via SSR and payload reduction; migrated services to AWS with CI/CD.",
+      "Added logging and alerts that cut MTTR about 45% on covered services.",
     ],
   },
   {
@@ -153,7 +134,7 @@ export const experience = [
     company: "Auth0",
     dates: "Dec 2014 – May 2017",
     bullets: [
-      "Operated production infrastructure for identity products — about 99.9% uptime on owned fleets — building monitoring and recovery discipline that still informs how I ship reliable React and .NET web apps.",
+      "Operated identity production infrastructure at about 99.9% uptime, building monitoring and recovery habits used in shipping reliable Python/React apps.",
     ],
   },
 ];
@@ -175,24 +156,22 @@ export const projects = [
   {
     name: "Multi-Tenant Platform",
     description:
-      "React and Next.js web app with API backend, RBAC, and real-time UI — multi-tenant SaaS foundations.",
+      "React/Next.js + API backend with RBAC and real-time UI — multi-tenant SaaS foundations.",
     url: "https://github.com/dcam25/multi-tenant-platform",
   },
   {
     name: "Nexus AI",
-    description:
-      "React and Next.js web clients with streaming APIs for generative AI chat experiences.",
+    description: "React/Next.js streaming API clients for generative AI chat experiences.",
     url: "https://github.com/dcam25/Nexus-AI_Nextjs_Nuxtjs_Angular",
   },
   {
     name: "PropEdge AI",
-    description:
-      "React web product with Stripe tiers and performance-minded UI for sports props analytics.",
+    description: "React product with Stripe tiers and performance-minded UI.",
     url: "https://github.com/dcam25/PropEdge_AI",
   },
 ];
 
 export const freelance = {
   headline: "Available for full-time and part-time roles",
-  body: "Open to full-time and part-time opportunities as a Senior .NET / React Web Developer — plus freelance and contract work via Guru or direct email.",
+  body: "Open to full-time and part-time opportunities as a Senior Full Stack Engineer (Python, React, .NET, AWS) — plus freelance and contract work via Guru or direct email.",
 };

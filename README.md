@@ -1,6 +1,6 @@
 # Dane C Cameron — Portfolio
 
-Astro portfolio for Senior .NET / React web development.
+Astro portfolio for Senior Full Stack Engineering (Python, React, .NET, AWS).
 
 ## Links
 
