@@ -64,7 +64,7 @@ import {
     <section id="about">
       <div class="wrap">
         <p class="section-label">About</p>
-        <h2 class="section-title">Full-stack product delivery for trust-sensitive domains</h2>
+        <h2 class="section-title">Full-stack C#, React & SQL for product teams</h2>
         <div class="about-text">
           {site.about.map((paragraph) => <p>{paragraph}</p>)}
         </div>
@@ -74,10 +74,10 @@ import {
     <section id="domains">
       <div class="wrap">
         <p class="section-label">Focus</p>
-        <h2 class="section-title">Healthcare & fintech</h2>
+        <h2 class="section-title">Healthcare, fintech & ecommerce</h2>
         <p class="section-lead">
-          Building reliable React and API systems where data protection, auth, and auditability
-          matter as much as shipping speed.
+          Customer-facing web apps and APIs where performance, data integrity, and trust matter —
+          from B2C ecommerce patterns to regulated healthcare and fintech workflows.
         </p>
         <div class="domains-grid">
           {
@@ -97,8 +97,8 @@ import {
         <p class="section-label">Core competencies</p>
         <h2 class="section-title">Tech stack & focus areas</h2>
         <p class="section-lead">
-          React and TypeScript on the client; Python, Node, and ASP.NET Core on the server — plus
-          cloud, data, security, and domain practices for healthcare and fintech product teams.
+          C#, React, Next.js, and SQL Server at the core — with Azure/AWS, Redis, Elastic, and
+          delivery practices for healthcare, fintech, and ecommerce product teams.
         </p>
         <div class="skills-grid">
           {
@@ -122,10 +122,10 @@ import {
     <section id="experience">
       <div class="wrap">
         <p class="section-label">Experience</p>
-        <h2 class="section-title">12 years shipping sensitive product software</h2>
+        <h2 class="section-title">12 years shipping customer-facing web software</h2>
         <p class="section-lead">
-          From Auth0 identity infrastructure through HashiCorp and Cloudrise — full-stack delivery
-          with regulated, high-trust patterns that transfer to healthcare and fintech.
+          From Auth0 (Bellevue) through Checkr and HashiCorp (San Francisco) to Cloudrise (Grand
+          Junction) — full-stack delivery with strong data and cloud fundamentals.
         </p>
         <div class="timeline">
           {
@@ -134,7 +134,10 @@ import {
                 <div class="job-header">
                   <div>
                     <h3 class="job-role">{job.role}</h3>
-                    <p class="job-company">{job.company}</p>
+                    <p class="job-company">
+                      {job.company}
+                      {job.location ? ` · ${job.location}` : ""}
+                    </p>
                   </div>
                   <p class="job-dates">{job.dates}</p>
                 </div>
@@ -155,8 +158,8 @@ import {
         <p class="section-label">Selected work</p>
         <h2 class="section-title">Projects on GitHub</h2>
         <p class="section-lead">
-          React products with APIs, RBAC, payments, and AI — patterns that map to healthcare and
-          fintech SaaS. More on{" "}
+          B2C-style React products with APIs, SQL, RBAC, and payments — patterns that map to
+          ecommerce, healthcare, and fintech SaaS. More on{" "}
           <a href={site.links.github} target="_blank" rel="noopener noreferrer">github.com/dcam25</a>.
         </p>
         <div class="projects-grid">
@@ -188,7 +191,8 @@ import {
               <article class="edu-item">
                 <h3>{item.degree}</h3>
                 <p>
-                  {item.school} · {item.dates}
+                  {item.school}
+                  {item.location ? ` · ${item.location}` : ""} · {item.dates}
                 </p>
               </article>
             ))

@@ -1,6 +1,6 @@
 # Dane C Cameron — Portfolio
 
-Astro portfolio for Senior Full Stack Engineering focused on **healthcare** and **fintech**.
+Astro portfolio for Senior Full Stack Engineering (C#, React, Next.js, SQL Server) across healthcare, fintech, and ecommerce.
 
 ## Links
 
