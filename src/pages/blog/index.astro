@@ -25,12 +25,8 @@ function formatDate(date: Date) {
   <SiteHeader current="blog" />
   <main id="main" class="blog-main">
     <section class="wrap blog-hero">
-      <p class="section-label">Blog</p>
-      <h1 class="section-title">Notes from shipping full-stack software</h1>
-      <p class="section-lead">
-        Practical write-ups on CI/CD, AWS, React/Next.js, SQL Server, auth, and AI guardrails —
-        the same keywords that show up across my resumes for healthcare, fintech, and ecommerce work.
-      </p>
+      <p class="section-label">Writing</p>
+      <h1 class="blog-page-title">Blog</h1>
     </section>
 
     <section class="wrap blog-list">
@@ -39,13 +35,16 @@ function formatDate(date: Date) {
           posts.map((post) => (
             <li>
               <a class="post-card" href={`/blog/${post.id}/`}>
-                <time datetime={post.data.pubDate.toISOString()}>
-                  {formatDate(post.data.pubDate)}
-                </time>
+                <div class="post-card-meta">
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {formatDate(post.data.pubDate)}
+                  </time>
+                  <span class="post-card-arrow" aria-hidden="true">→</span>
+                </div>
                 <h2>{post.data.title}</h2>
                 <p>{post.data.description}</p>
                 <ul class="post-tags">
-                  {post.data.tags.map((tag) => (
+                  {post.data.tags.slice(0, 5).map((tag) => (
                     <li>
                       <span class="skill-tag">{tag}</span>
                     </li>
