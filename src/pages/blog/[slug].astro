@@ -64,28 +64,6 @@ function formatDate(date: Date) {
                 ))
               }
             </ul>
-            {
-              post.data.heroCredit && (
-                <p class="post-banner-credit">
-                  Photo by{" "}
-                  {post.data.heroCreditUrl ? (
-                    <a href={post.data.heroCreditUrl} target="_blank" rel="noopener noreferrer">
-                      {post.data.heroCredit}
-                    </a>
-                  ) : (
-                    post.data.heroCredit
-                  )}{" "}
-                  on{" "}
-                  <a
-                    href="https://unsplash.com/?utm_source=dane_cameron_portfolio&utm_medium=referral"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Unsplash
-                  </a>
-                </p>
-              )
-            }
           </div>
         </div>
       </header>
