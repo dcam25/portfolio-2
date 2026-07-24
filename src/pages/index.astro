@@ -184,9 +184,28 @@ import {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <h3>{project.name}</h3>
-                <p>{project.description}</p>
-                <span class="project-link">View repo →</span>
+                <div class="project-media">
+                  <img
+                    src={project.image}
+                    alt={project.imageAlt}
+                    width="1200"
+                    height="800"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="project-body">
+                  <h3>{project.name}</h3>
+                  <p>{project.description}</p>
+                  <ul class="project-tags">
+                    {project.tags.map((tag) => (
+                      <li>
+                        <span class="skill-tag">{tag}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <span class="project-link">View repo →</span>
+                </div>
               </a>
             ))
           }
@@ -216,7 +235,7 @@ import {
 
     <section class="freelance" id="hire">
       <div class="wrap">
-        <p class="section-label">Opportunities</p>
+        <p class="section-label">Contact Me</p>
         <h2 class="section-title">{freelance.headline}</h2>
         <p class="section-lead">{freelance.body}</p>
         <div class="contact-row">

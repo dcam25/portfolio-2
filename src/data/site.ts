@@ -234,17 +234,35 @@ export const projects = [
     description:
       "Full-stack B2C-style product with React UI, SQL-backed features, and Stripe Free/Premium tiers.",
     url: "https://github.com/dcam25/PropEdge_AI",
+    image: "/projects/propedge-ai.jpg",
+    imageAlt: "Desk workspace representing a B2C product and payments stack",
+    imageCredit: "Adeolu Eletu",
+    imageCreditUrl:
+      "https://unsplash.com/@adeolueletu?utm_source=dane_cameron_portfolio&utm_medium=referral",
+    tags: ["React", "SQL", "Stripe", "B2C"],
   },
   {
     name: "Multi-Tenant Platform",
     description:
       "React/Next.js, APIs, RBAC, and real-time UI - multi-tenant foundations for SaaS products.",
     url: "https://github.com/dcam25/multi-tenant-platform",
+    image: "/projects/multi-tenant.jpg",
+    imageAlt: "Team collaborating on shared product software",
+    imageCredit: "Annie Spratt",
+    imageCreditUrl:
+      "https://unsplash.com/@anniespratt?utm_source=dane_cameron_portfolio&utm_medium=referral",
+    tags: ["Next.js", "RBAC", "APIs", "SaaS"],
   },
   {
     name: "Nexus AI",
     description: "React/Next.js clients with streaming API backends for generative AI chat.",
     url: "https://github.com/dcam25/Nexus-AI_Nextjs_Nuxtjs_Angular",
+    image: "/projects/nexus-ai.jpg",
+    imageAlt: "Abstract AI neural network visual",
+    imageCredit: "Growtika",
+    imageCreditUrl:
+      "https://unsplash.com/@growtika?utm_source=dane_cameron_portfolio&utm_medium=referral",
+    tags: ["React", "Next.js", "Streaming", "AI"],
   },
 ];
 
