@@ -982,11 +982,71 @@ section {
   }
 }
 
-.home-blog-grid {
+.home-blog-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.home-blog-lead {
+  margin-bottom: 1.75rem;
+}
+
+.blog-carousel-controls {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  margin-bottom: 1.75rem;
+}
+
+.blog-carousel-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.blog-carousel-btn:hover:not(:disabled),
+.blog-carousel-btn:focus-visible:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.blog-carousel-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.blog-carousel {
+  position: relative;
+}
+
+.blog-carousel-track {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.75rem 1.5rem;
-  align-items: stretch;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 3rem) / 3);
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 0.35rem;
+  scrollbar-width: none;
+  outline: none;
+}
+
+.blog-carousel-track::-webkit-scrollbar {
+  display: none;
 }
 
 .home-blog-card {
@@ -994,6 +1054,7 @@ section {
   flex-direction: column;
   text-decoration: none;
   min-width: 0;
+  scroll-snap-align: start;
 }
 
 .home-blog-media {
@@ -1058,13 +1119,49 @@ section {
   transform: translateX(3px);
 }
 
-@media (max-width: 900px) {
-  .home-blog-grid {
-    grid-template-columns: 1fr;
+.blog-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 1.25rem;
+}
+
+.blog-carousel-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--muted) 45%, transparent);
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.blog-carousel-dot.is-active {
+  background: var(--accent);
+  transform: scale(1.25);
+}
+
+@media (max-width: 980px) {
+  .blog-carousel-track {
+    grid-auto-columns: calc((100% - 1.5rem) / 2);
+  }
+}
+
+@media (max-width: 640px) {
+  .home-blog-head {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .home-blog-media {
-    max-width: 28rem;
+  .blog-carousel-controls {
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-carousel-track {
+    grid-auto-columns: 100%;
   }
 }
 

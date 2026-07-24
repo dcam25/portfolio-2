@@ -14,8 +14,7 @@ import {
 
 const latestPosts = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 function formatDate(date: Date) {
   return date.toLocaleDateString("en-US", {
@@ -229,42 +228,183 @@ function formatDate(date: Date) {
 
     <section id="blog">
       <div class="wrap">
-        <p class="section-label">Writing</p>
-        <h2 class="section-title">Latest from the blog</h2>
-        <p class="section-lead">
-          Practical notes on full-stack delivery, CI/CD, auth, and AI guardrails.{" "}
-          <a href="/blog/">Browse all posts</a>.
-        </p>
-        <div class="home-blog-grid">
-          {
-            latestPosts.map((post) => (
-              <a class="home-blog-card" href={`/blog/${post.id}/`}>
-                {post.data.heroImage && (
-                  <div class="home-blog-media">
-                    <img
-                      src={post.data.heroImage}
-                      alt=""
-                      width="640"
-                      height="360"
-                      loading="lazy"
-                      decoding="async"
-                    />
+        <div class="home-blog-head">
+          <div>
+            <p class="section-label">Writing</p>
+            <h2 class="section-title">Latest from the blog</h2>
+            <p class="section-lead home-blog-lead">
+              Practical notes on full-stack delivery, CI/CD, auth, and AI guardrails.{" "}
+              <a href="/blog/">Browse all posts</a>.
+            </p>
+          </div>
+          <div class="blog-carousel-controls" aria-hidden="false">
+            <button type="button" class="blog-carousel-btn" data-blog-prev aria-label="Previous posts">
+              ←
+            </button>
+            <button type="button" class="blog-carousel-btn" data-blog-next aria-label="Next posts">
+              →
+            </button>
+          </div>
+        </div>
+
+        <div class="blog-carousel" data-blog-carousel>
+          <div class="blog-carousel-track" data-blog-track tabindex="0" aria-label="Blog posts carousel">
+            {
+              latestPosts.map((post) => (
+                <a class="home-blog-card" href={`/blog/${post.id}/`}>
+                  {post.data.heroImage && (
+                    <div class="home-blog-media">
+                      <img
+                        src={post.data.heroImage}
+                        alt=""
+                        width="640"
+                        height="360"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  )}
+                  <div class="home-blog-body">
+                    <time datetime={post.data.pubDate.toISOString()}>
+                      {formatDate(post.data.pubDate)}
+                    </time>
+                    <h3>{post.data.title}</h3>
+                    <p>{post.data.description}</p>
+                    <span class="project-link">Read post →</span>
                   </div>
-                )}
-                <div class="home-blog-body">
-                  <time datetime={post.data.pubDate.toISOString()}>
-                    {formatDate(post.data.pubDate)}
-                  </time>
-                  <h3>{post.data.title}</h3>
-                  <p>{post.data.description}</p>
-                  <span class="project-link">Read post →</span>
-                </div>
-              </a>
-            ))
-          }
+                </a>
+              ))
+            }
+          </div>
+          <div class="blog-carousel-dots" data-blog-dots></div>
         </div>
       </div>
     </section>
+
+    <script>
+      const root = document.querySelector("[data-blog-carousel]");
+      const track = document.querySelector<HTMLElement>("[data-blog-track]");
+      const prev = document.querySelector<HTMLButtonElement>("[data-blog-prev]");
+      const next = document.querySelector<HTMLButtonElement>("[data-blog-next]");
+      const dotsWrap = document.querySelector<HTMLElement>("[data-blog-dots]");
+
+      if (root && track && prev && next && dotsWrap) {
+        const cards = Array.from(track.querySelectorAll<HTMLElement>(".home-blog-card"));
+        let index = 0;
+        let timer: number | undefined;
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        const pageSize = () => {
+          const width = track.clientWidth;
+          if (width < 640) return 1;
+          if (width < 980) return 2;
+          return 3;
+        };
+
+        const maxIndex = () => Math.max(0, cards.length - pageSize());
+
+        const rebuildDots = () => {
+          dotsWrap.innerHTML = "";
+          const pages = maxIndex() + 1;
+          for (let i = 0; i < pages; i++) {
+            const dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "blog-carousel-dot";
+            dot.setAttribute("aria-label", `Go to blog slide ${i + 1}`);
+            dot.addEventListener("click", () => goTo(i));
+            dotsWrap.appendChild(dot);
+          }
+        };
+
+        const syncDots = () => {
+          const dots = Array.from(dotsWrap.querySelectorAll(".blog-carousel-dot"));
+          dots.forEach((dot, i) => {
+            dot.classList.toggle("is-active", i === index);
+            dot.setAttribute("aria-current", i === index ? "true" : "false");
+          });
+          prev.disabled = index <= 0;
+          next.disabled = index >= maxIndex();
+        };
+
+        const goTo = (nextIndex: number) => {
+          index = Math.max(0, Math.min(nextIndex, maxIndex()));
+          const card = cards[index];
+          if (!card) return;
+          track.scrollTo({
+            left: card.offsetLeft - track.offsetLeft,
+            behavior: reduceMotion ? "auto" : "smooth",
+          });
+          syncDots();
+        };
+
+        const step = (dir: number) => goTo(index + dir);
+
+        prev.addEventListener("click", () => step(-1));
+        next.addEventListener("click", () => step(1));
+
+        track.addEventListener("keydown", (event) => {
+          if (event.key === "ArrowLeft") {
+            event.preventDefault();
+            step(-1);
+          }
+          if (event.key === "ArrowRight") {
+            event.preventDefault();
+            step(1);
+          }
+        });
+
+        let scrollTick = 0;
+        track.addEventListener(
+          "scroll",
+          () => {
+            window.clearTimeout(scrollTick);
+            scrollTick = window.setTimeout(() => {
+              const left = track.scrollLeft;
+              let closest = 0;
+              let best = Number.POSITIVE_INFINITY;
+              cards.forEach((card, i) => {
+                const dist = Math.abs(card.offsetLeft - track.offsetLeft - left);
+                if (dist < best) {
+                  best = dist;
+                  closest = i;
+                }
+              });
+              index = Math.min(closest, maxIndex());
+              syncDots();
+            }, 60);
+          },
+          { passive: true },
+        );
+
+        const stop = () => {
+          if (timer) window.clearInterval(timer);
+          timer = undefined;
+        };
+
+        const start = () => {
+          stop();
+          if (reduceMotion || cards.length <= pageSize()) return;
+          timer = window.setInterval(() => {
+            if (index >= maxIndex()) goTo(0);
+            else step(1);
+          }, 5500);
+        };
+
+        root.addEventListener("mouseenter", stop);
+        root.addEventListener("mouseleave", start);
+        root.addEventListener("focusin", stop);
+        root.addEventListener("focusout", start);
+
+        window.addEventListener("resize", () => {
+          rebuildDots();
+          goTo(Math.min(index, maxIndex()));
+        });
+
+        rebuildDots();
+        goTo(0);
+        start();
+      }
+    </script>
 
     <section id="education">
       <div class="wrap">
