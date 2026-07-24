@@ -1,6 +1,6 @@
 ---
 title: "React + Django REST Framework: full-stack Python that scales"
-description: "Hooks, DRF, PostgreSQL, and OWASP-minded defaults — how I ship React UIs and Python APIs with tests, idempotency, and staff-level code review habits."
+description: "Hooks, DRF, PostgreSQL, and OWASP-minded defaults - how I ship React UIs and Python APIs with tests, idempotency, and staff-level code review habits."
 pubDate: 2026-06-28
 tags: ["React", "Python", "Django", "DRF", "PostgreSQL", "OWASP", "TypeScript"]
 heroImage: "/blog/react-django-drf-postgresql.jpg"
@@ -13,7 +13,7 @@ When a role centers on **React** and **Python / Django / DRF**, I write for the 
 
 ## Frontend that stays maintainable
 
-Modern **React** (hooks, Context where it fits, **TypeScript**) plus a reusable component library beats one-off page dumps. Jest and React Testing Library cover the flows that break users — not every trivial render.
+Modern **React** (hooks, Context where it fits, **TypeScript**) plus a reusable component library beats one-off page dumps. Jest and React Testing Library cover the flows that break users - not every trivial render.
 
 ## DRF as the product boundary
 

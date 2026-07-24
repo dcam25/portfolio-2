@@ -1,6 +1,6 @@
 ---
 title: "Azure full-stack delivery: .NET, Angular, and Service Bus patterns"
-description: "Hands-on IC notes on C# microservices, Angular UIs, Azure Service Bus, Terraform, and GitHub Actions — plus AI in the workflow with review gates."
+description: "Hands-on IC notes on C# microservices, Angular UIs, Azure Service Bus, Terraform, and GitHub Actions - plus AI in the workflow with review gates."
 pubDate: 2026-05-15
 tags: ["Azure", "C#", ".NET", "Angular", "Service Bus", "Terraform", "GitHub Actions"]
 heroImage: "/blog/azure-dotnet-angular-service-bus.jpg"
@@ -17,7 +17,7 @@ A practical Azure layout I keep returning to:
 
 - REST APIs on modern .NET with clear ownership boundaries
 - **Angular** TypeScript UIs for operator and customer surfaces
-- **Azure Service Bus** (or equivalent queues) for reliable async work — not every call needs to be synchronous HTTP
+- **Azure Service Bus** (or equivalent queues) for reliable async work - not every call needs to be synchronous HTTP
 - Managed services chosen for cost and operability, not logo bingo
 - **Terraform** + Azure CLI / PowerShell for repeatable environments
 - **GitHub Actions** for build, test, and promotion
@@ -32,4 +32,4 @@ Queues only help when handlers are idempotent and poison messages have a home. I
 
 ## Global team habits
 
-Clear PR descriptions, shared coding standards, and honest trade-off talk travel better across time zones than clever one-off scripts. Hands-on IC ownership — requirements through deploy — is still the job.
+Clear PR descriptions, shared coding standards, and honest trade-off talk travel better across time zones than clever one-off scripts. Hands-on IC ownership - requirements through deploy - is still the job.

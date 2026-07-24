@@ -1,6 +1,6 @@
 ---
 title: "OAuth2, OIDC, and PII: shipping trust-sensitive React and API features"
-description: "Practical auth and data-handling habits for healthcare-, fintech-, and identity-adjacent products — RBAC, validation at the edge, and SOC2-friendly change control."
+description: "Practical auth and data-handling habits for healthcare-, fintech-, and identity-adjacent products - RBAC, validation at the edge, and SOC2-friendly change control."
 pubDate: 2026-03-22
 tags: ["OAuth2", "OIDC", "RBAC", "PII", "SOC2", "Security", "React"]
 heroImage: "/blog/oauth2-oidc-pii-regulated-delivery.jpg"
@@ -17,7 +17,7 @@ On services I own, embedding unit tests, **SAST**, and OAuth2/OIDC checks in **G
 
 - Validate input at the edge (REST / GraphQL / gRPC) so malformed clients never reach sensitive stores
 - Prefer least-privilege scopes and short-lived tokens
-- Keep secrets in a vault or cloud secret store — not in repo config
+- Keep secrets in a vault or cloud secret store - not in repo config
 
 ## PII and audit-ready delivery
 
@@ -27,7 +27,7 @@ In regulated environments (**SOC2**, **NIST**), the questions auditors ask map c
 - How is access reviewed?
 - What happens when a deploy goes wrong?
 
-**Gated promotions**, change records, and runbooks are not bureaucracy — they are how you keep shipping while staying evidence-ready.
+**Gated promotions**, change records, and runbooks are not bureaucracy - they are how you keep shipping while staying evidence-ready.
 
 ## Frontend partnership
 

@@ -15,15 +15,15 @@ Shipping a React frontend and a C# or FastAPI backend is the easy part. Keeping 
 
 A pattern I use on product teams:
 
-1. **Terraform** owns the durable platform — VPC pieces, ECS/Fargate service shell, IAM, load balancer, logs.
-2. **GitHub Actions** owns what runs — build the image, push to **ECR**, update the task definition, wait for health.
+1. **Terraform** owns the durable platform - VPC pieces, ECS/Fargate service shell, IAM, load balancer, logs.
+2. **GitHub Actions** owns what runs - build the image, push to **ECR**, update the task definition, wait for health.
 3. Terraform uses `lifecycle { ignore_changes }` on container image fields so `terraform apply` does not clobber the image CI just shipped.
 
 That split shows up in modern ECS + Fargate writeups: IaC creates the stage, CI/CD manages the actors.
 
 ## Pipeline shape
 
-On pull requests: lint, unit tests, and a quick **SAST** pass — no deploy.
+On pull requests: lint, unit tests, and a quick **SAST** pass - no deploy.
 
 On `main` (or a release tag):
 

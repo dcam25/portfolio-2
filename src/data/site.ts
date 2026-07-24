@@ -8,7 +8,7 @@ export const site = {
   portrait: "/portrait.jpg",
   portraitAlt: "Dane C Cameron, professional headshot",
   summary:
-    "Hands-on Senior Full Stack Engineer with 12 years shipping production web apps end-to-end — React/TypeScript UIs, Node.js or C#/.NET APIs, and SQL — on AWS and Azure. Strongest at owning features from design through production: clear tradeoffs, measurable performance, gated CI/CD, and reliable systems in healthcare-, fintech-, and identity-adjacent products.",
+    "Hands-on Senior Full Stack Engineer with 12 years shipping production web apps end-to-end - React/TypeScript UIs, Node.js or C#/.NET APIs, and SQL - on AWS and Azure. Strongest at owning features from design through production: clear tradeoffs, measurable performance, gated CI/CD, and reliable systems in healthcare-, fintech-, and identity-adjacent products.",
   about: [
     "I build customer-facing and internal product software as an IC: React/Next.js on the front, APIs and SQL in the middle, cloud delivery and monitoring so releases stay boring. Recent work includes regulated environments (SOC2/NIST), practical RAG helpers with guardrails, and mentoring through code review.",
     "Stack I reach for most: TypeScript, React, Node.js, C# / ASP.NET Core, Python, SQL Server, AWS, Azure, Docker, Terraform/Pulumi, GitHub Actions. Open to remote Senior Software Engineer / Full-Stack roles in the U.S. MS and BS in Computer Science (WGU, Salt Lake City, UT).",
@@ -171,7 +171,7 @@ export const experience = [
     location: "Grand Junction, CO",
     dates: "Oct 2023 – Apr 2026",
     bullets: [
-      "Built full-stack web features mixing C# ASP.NET Core APIs, React/Next.js UIs, and SQL Server — owning design through production support for customer and operator-facing flows.",
+      "Built full-stack web features mixing C# ASP.NET Core APIs, React/Next.js UIs, and SQL Server - owning design through production support for customer and operator-facing flows.",
       "Maintained performance, scalability, and reliability: query tuning, indexing, Redis caching, and Elastic-style search/logging paths under growth.",
       "Deployed and managed software infrastructure on Azure and AWS with Terraform/Bicep-class IaC, GitHub Actions / Azure DevOps-style pipelines, monitoring, and safe promotions.",
       "Participated in architectural discussions; reviewed code, mentored engineers, and helped resolve production issues during on-call-style rotations.",
@@ -207,7 +207,7 @@ export const experience = [
     dates: "Dec 2014 – May 2017",
     bullets: [
       "Provisioned, patched, and operated Linux fleets for identity production systems (~99.9% uptime on owned hosts).",
-      "Built monitoring, backup/restore drills, host hardening, and on-call runbooks — reliability habits still used in senior full-stack delivery.",
+      "Built monitoring, backup/restore drills, host hardening, and on-call runbooks - reliability habits still used in senior full-stack delivery.",
       "Automated baselines so new servers matched known-good config instead of manual snowflakes.",
     ],
   },
@@ -215,13 +215,13 @@ export const experience = [
 
 export const education = [
   {
-    degree: "Master of Science — Computer Science",
+    degree: "Master of Science - Computer Science",
     school: "Western Governors University",
     location: "Salt Lake City, UT",
     dates: "Sep 2014 – Jul 2016",
   },
   {
-    degree: "Bachelor of Science — Computer Science",
+    degree: "Bachelor of Science - Computer Science",
     school: "Western Governors University",
     location: "Salt Lake City, UT",
     dates: "Apr 2010 – Aug 2014",
@@ -238,7 +238,7 @@ export const projects = [
   {
     name: "Multi-Tenant Platform",
     description:
-      "React/Next.js, APIs, RBAC, and real-time UI — multi-tenant foundations for SaaS products.",
+      "React/Next.js, APIs, RBAC, and real-time UI - multi-tenant foundations for SaaS products.",
     url: "https://github.com/dcam25/multi-tenant-platform",
   },
   {
@@ -250,5 +250,5 @@ export const projects = [
 
 export const freelance = {
   headline: "Available for full-time and part-time roles",
-  body: "Open to remote Senior Full Stack roles across healthcare, fintech, and ecommerce — C#, React, Next.js, SQL Server, Azure/AWS — plus freelance via Guru or direct email.",
+  body: "Open to remote Senior Full Stack roles across healthcare, fintech, and ecommerce - C#, React, Next.js, SQL Server, Azure/AWS - plus freelance via Guru or direct email.",
 };

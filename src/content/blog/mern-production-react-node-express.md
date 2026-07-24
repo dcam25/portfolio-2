@@ -9,7 +9,7 @@ heroCredit: "Arnold Francisca"
 heroCreditUrl: "https://unsplash.com/@arnoldfrancisca?utm_source=dane_cameron_portfolio&utm_medium=referral"
 ---
 
-**MERN** roles still show up constantly. The production bar is not “can you scaffold Create React App + Express” — it is whether the stack stays operable when analytics, governance, and cloud deploys enter the chat.
+**MERN** roles still show up constantly. The production bar is not “can you scaffold Create React App + Express” - it is whether the stack stays operable when analytics, governance, and cloud deploys enter the chat.
 
 ## Default shape
 
@@ -26,4 +26,4 @@ GitHub Actions (and Jenkins where the org still lives there), Dockerized service
 
 ## AI-adjacent without losing the plot
 
-Dashboards and APIs that consume processed data, plus guarded RAG helpers behind the API, belong in the MERN story when the product needs them — with the same quality, security, and data-governance habits as any other service.
+Dashboards and APIs that consume processed data, plus guarded RAG helpers behind the API, belong in the MERN story when the product needs them - with the same quality, security, and data-governance habits as any other service.

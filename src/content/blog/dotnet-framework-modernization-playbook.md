@@ -15,7 +15,7 @@ Greenfield demos are easy. The resumes that stick for **.NET modernization** rol
 
 A pattern that has worked for me:
 
-1. Extract a **versioned REST API** surface first — auth, reliability, and tests on the new edge
+1. Extract a **versioned REST API** surface first - auth, reliability, and tests on the new edge
 2. Move callers gradually (feature flags, dual-run where risk is high)
 3. Upgrade hosting to modern **.NET** (LTS where the org will support it)
 4. Keep **SQL Server** transactional correctness while you tune indexes and hot queries
@@ -34,4 +34,4 @@ Daily **Cursor / Claude Code / Codex**-class tooling helps with multi-file refac
 
 ## Progressive delivery
 
-Feature flags and canary-minded releases beat weekend cutovers. Pair that with structured logging so you can prove the new path before you retire the old one — especially in **healthcare**- and **payments**-adjacent workflows where privacy and least privilege are defaults, not slides.
+Feature flags and canary-minded releases beat weekend cutovers. Pair that with structured logging so you can prove the new path before you retire the old one - especially in **healthcare**- and **payments**-adjacent workflows where privacy and least privilege are defaults, not slides.

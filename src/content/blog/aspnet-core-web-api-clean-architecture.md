@@ -19,7 +19,7 @@ On Microsoft-stack product work I reach for:
 - **Middleware** for cross-cutting concerns (correlation IDs, auth context, consistent error shapes)
 - **async/await** end-to-end so thread pool starvation does not show up as “random slowness”
 - **Clean architecture** layers that keep controllers thin and domain rules out of EF/ADO call sites
-- **OOP and design patterns** where they reduce duplication — not ceremony for its own sake
+- **OOP and design patterns** where they reduce duplication - not ceremony for its own sake
 
 That combination maps cleanly to Azure AD / Okta-backed **OAuth2 / OIDC / JWT** APIs and to front ends in **React** or **Angular**.
 

@@ -13,7 +13,7 @@ AI-assisted delivery is now a hiring signal and a daily habit. The risk in healt
 
 ## Design goals
 
-- Retrieve with metadata filters — do not stuff entire corpora into context
+- Retrieve with metadata filters - do not stuff entire corpora into context
 - Mask sensitive fields **before** the model sees them
 - Route low-confidence answers to human review instead of confident hallucination
 - Accept a small latency cost (retrieval) for safer grounding
@@ -22,7 +22,7 @@ On an internal eval set, that pattern cut leak/hallucination risk on the order o
 
 ## Production shape
 
-A thin **FastAPI** (or Node) service in front of the RAG pipeline, React UI for operators, secrets never in the client, and CI that runs eval smoke tests — not only unit tests.
+A thin **FastAPI** (or Node) service in front of the RAG pipeline, React UI for operators, secrets never in the client, and CI that runs eval smoke tests - not only unit tests.
 
 ## What “AI productivity” should mean on a resume
 

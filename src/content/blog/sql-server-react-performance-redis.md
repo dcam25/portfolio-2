@@ -1,6 +1,6 @@
 ---
 title: "SQL Server performance for React apps: indexes, contracts, and Redis"
-description: "How I keep customer-facing UIs snappy when the source of truth is SQL Server — schema design, query tuning, and when Redis belongs in front of hot paths."
+description: "How I keep customer-facing UIs snappy when the source of truth is SQL Server - schema design, query tuning, and when Redis belongs in front of hot paths."
 pubDate: 2026-04-18
 tags: ["SQL Server", "React", "C#", "ASP.NET Core", "Redis", "Performance"]
 heroImage: "/blog/sql-server-react-performance-redis.jpg"
@@ -19,7 +19,7 @@ Before adding indexes:
 2. Is the API over-fetching for convenience?
 3. Are we doing N+1 patterns behind a GraphQL or REST batch?
 
-Aligning the **API contract** with the UI cuts payload size the same way **SSR** and Lighthouse work do on the client — both matter.
+Aligning the **API contract** with the UI cuts payload size the same way **SSR** and Lighthouse work do on the client - both matter.
 
 ## Schema and query habits
 
@@ -28,7 +28,7 @@ Patterns that keep B2C and operator UIs scalable:
 - Index for the **predicates you filter and join on**, not every column
 - Watch for implicit conversions that kill index seeks
 - Keep multi-step updates that touch **PII** inside clear **transaction** boundaries
-- Measure before rewriting — profiling hot paths has repeatedly paid off (~35% latency cuts when non-critical work moves off the request thread)
+- Measure before rewriting - profiling hot paths has repeatedly paid off (~35% latency cuts when non-critical work moves off the request thread)
 
 ## Where Redis fits
 
