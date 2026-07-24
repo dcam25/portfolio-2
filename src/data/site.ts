@@ -17,10 +17,20 @@ export const site = {
     {
       title: "Healthcare",
       body: "Digital health and care-operations style UIs, PII-aware APIs, regulated delivery patterns, and reliable operator workflows.",
+      image: "/domains/healthcare.jpg",
+      imageAlt: "Clinician reviewing digital health information on a tablet",
+      imageCredit: "National Cancer Institute",
+      imageCreditUrl:
+        "https://unsplash.com/@nci?utm_source=dane_cameron_portfolio&utm_medium=referral",
     },
     {
       title: "Fintech & ecommerce",
       body: "Customer-facing B2C web apps, payments-adjacent flows, strong auth, audit-minded change control, and production reliability.",
+      image: "/domains/fintech-ecommerce.jpg",
+      imageAlt: "Customer completing a card payment at a checkout counter",
+      imageCredit: "Blake Wisz",
+      imageCreditUrl:
+        "https://unsplash.com/@blakewisz?utm_source=dane_cameron_portfolio&utm_medium=referral",
     },
   ],
   links: {

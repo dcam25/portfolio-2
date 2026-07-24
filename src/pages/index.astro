@@ -72,8 +72,32 @@ import {
           {
             site.domains.map((domain) => (
               <article class="domain">
+                <div class="domain-media">
+                  <img
+                    src={domain.image}
+                    alt={domain.imageAlt}
+                    width="1200"
+                    height="800"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
                 <h3>{domain.title}</h3>
                 <p>{domain.body}</p>
+                <p class="domain-credit">
+                  Photo by{" "}
+                  <a href={domain.imageCreditUrl} target="_blank" rel="noopener noreferrer">
+                    {domain.imageCredit}
+                  </a>{" "}
+                  on{" "}
+                  <a
+                    href="https://unsplash.com/?utm_source=dane_cameron_portfolio&utm_medium=referral"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Unsplash
+                  </a>
+                </p>
               </article>
             ))
           }
