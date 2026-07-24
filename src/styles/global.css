@@ -128,10 +128,163 @@ a {
   transition: color 0.2s ease;
 }
 
+.nav-links a[aria-current="page"] {
+  color: var(--text);
+}
+
 .nav-links a:hover,
 .nav-links a:focus-visible {
   color: var(--text);
 }
+
+.blog-main {
+  padding-bottom: 3rem;
+}
+
+.blog-hero {
+  padding: 3.5rem 0 1.5rem;
+}
+
+.blog-list {
+  padding: 1rem 0 3rem;
+}
+
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.post-card {
+  display: block;
+  padding: 1.35rem 0;
+  border-top: 1px solid var(--line);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.post-card time {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+}
+
+.post-card h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+  font-weight: 700;
+  margin: 0.4rem 0 0.55rem;
+  letter-spacing: -0.02em;
+}
+
+.post-card p {
+  margin: 0 0 0.85rem;
+  color: var(--muted);
+}
+
+.post-card:hover h2 {
+  color: var(--accent);
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post-article {
+  padding: 3rem 0 4rem;
+  max-width: 46rem;
+}
+
+.post-header {
+  margin-bottom: 2rem;
+}
+
+.post-header time {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+.post-header .section-title {
+  margin-top: 0.5rem;
+}
+
+.post-header .section-label a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.post-header .section-label a:hover {
+  text-decoration: underline;
+}
+
+.prose {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.prose h2 {
+  font-family: var(--font-display);
+  color: var(--text);
+  font-size: 1.35rem;
+  margin: 2rem 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.prose h3 {
+  font-family: var(--font-display);
+  color: var(--text);
+  font-size: 1.1rem;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.prose p,
+.prose ul,
+.prose ol {
+  margin: 0 0 1rem;
+}
+
+.prose li + li {
+  margin-top: 0.35rem;
+}
+
+.prose strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.prose a {
+  color: var(--accent);
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  color: var(--warm);
+}
+
+.prose pre {
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 0.35rem;
+  background: rgba(231, 238, 248, 0.04);
+  margin: 0 0 1.25rem;
+}
+
+.prose pre code {
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
 
 .hero {
   position: relative;

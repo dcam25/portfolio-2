@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import { getCollection } from "astro:content";
+import { site } from "../../data/site";
+
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+}
+---
+
+<BaseLayout
+  title={`Blog — ${site.name}`}
+  description="Notes on full-stack delivery: React, C#, FastAPI, SQL Server, AWS, CI/CD, auth, and AI guardrails."
+>
+  <SiteHeader current="blog" />
+  <main id="main" class="blog-main">
+    <section class="wrap blog-hero">
+      <p class="section-label">Blog</p>
+      <h1 class="section-title">Notes from shipping full-stack software</h1>
+      <p class="section-lead">
+        Practical write-ups on CI/CD, AWS, React/Next.js, SQL Server, auth, and AI guardrails —
+        the same keywords that show up across my resumes for healthcare, fintech, and ecommerce work.
+      </p>
+    </section>
+
+    <section class="wrap blog-list">
+      <ul class="post-list">
+        {
+          posts.map((post) => (
+            <li>
+              <a class="post-card" href={`/blog/${post.id}/`}>
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {formatDate(post.data.pubDate)}
+                </time>
+                <h2>{post.data.title}</h2>
+                <p>{post.data.description}</p>
+                <ul class="post-tags">
+                  {post.data.tags.map((tag) => (
+                    <li>
+                      <span class="skill-tag">{tag}</span>
+                    </li>
+                  ))}
+                </ul>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>

@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 import {
   site,
   competencies,
@@ -11,20 +13,7 @@ import {
 ---
 
 <BaseLayout>
-  <header class="site-header" id="site-header">
-    <div class="wrap nav">
-      <a class="nav-brand" href="#top">{site.name}</a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#domains">Domains</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#hire">Hire</a></li>
-      </ul>
-    </div>
-  </header>
+  <SiteHeader current="home" />
 
   <main id="main">
     <section class="hero wrap" id="top" aria-label="Introduction">
@@ -223,26 +212,5 @@ import {
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <p>© {new Date().getFullYear()} {site.name}</p>
-      <div class="footer-links">
-        <a href={site.links.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href={site.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href={site.links.guru} target="_blank" rel="noopener noreferrer">Guru</a>
-        <a href={site.links.email}>{site.links.emailLabel}</a>
-      </div>
-    </div>
-  </footer>
+  <SiteFooter />
 </BaseLayout>
-
-<script>
-  const header = document.getElementById("site-header");
-  if (header) {
-    const onScroll = () => {
-      header.classList.toggle("is-scrolled", window.scrollY > 12);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-  }
-</script>

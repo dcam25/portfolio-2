@@ -1,0 +1,53 @@
+---
+import { site } from "../data/site";
+
+interface Props {
+  current?: "home" | "blog";
+}
+
+const { current = "home" } = Astro.props;
+---
+
+<header class="site-header" id="site-header">
+  <div class="wrap nav">
+    <a class="nav-brand" href="/">{site.name}</a>
+    <ul class="nav-links">
+      {
+        current === "home" ? (
+          <>
+            <li><a href="#about">About</a></li>
+            <li><a href="#domains">Domains</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="#hire">Hire</a></li>
+          </>
+        ) : (
+          <>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#skills">Skills</a></li>
+            <li><a href="/#experience">Experience</a></li>
+            <li><a href="/#projects">Projects</a></li>
+            <li>
+              <a href="/blog" aria-current={current === "blog" ? "page" : undefined}>Blog</a>
+            </li>
+            <li><a href="/#hire">Hire</a></li>
+          </>
+        )
+      }
+    </ul>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById("site-header");
+  if (header) {
+    const onScroll = () => {
+      header.classList.toggle("is-scrolled", window.scrollY > 12);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+</script>
