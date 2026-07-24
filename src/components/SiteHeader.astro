@@ -6,48 +6,108 @@ interface Props {
 }
 
 const { current = "home" } = Astro.props;
+const home = current === "home";
+const prefix = home ? "#" : "/#";
+
+const links = [
+  { href: `${prefix}about`, label: "About" },
+  { href: `${prefix}experience`, label: "Experience" },
+  { href: `${prefix}skills`, label: "Skills" },
+  { href: `${prefix}projects`, label: "Projects" },
+  {
+    href: "/blog",
+    label: "Blog",
+    current: current === "blog",
+  },
+] as const;
 ---
 
 <header class="site-header" id="site-header">
   <div class="wrap nav">
     <a class="nav-brand" href="/">{site.name}</a>
-    <ul class="nav-links">
-      {
-        current === "home" ? (
-          <>
-            <li><a href="#about">About</a></li>
-            <li><a href="#domains">Domains</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="#hire">Hire</a></li>
-          </>
-        ) : (
-          <>
-            <li><a href="/#about">About</a></li>
-            <li><a href="/#skills">Skills</a></li>
-            <li><a href="/#experience">Experience</a></li>
-            <li><a href="/#projects">Projects</a></li>
+
+    <nav class="nav-primary" aria-label="Primary">
+      <ul class="nav-links">
+        {
+          links.map((link) => (
             <li>
-              <a href="/blog" aria-current={current === "blog" ? "page" : undefined}>Blog</a>
+              <a
+                href={link.href}
+                aria-current={"current" in link && link.current ? "page" : undefined}
+              >
+                {link.label}
+              </a>
             </li>
-            <li><a href="/#hire">Hire</a></li>
-          </>
-        )
+          ))
+        }
+      </ul>
+      <a class="nav-cta" href={home ? "#hire" : "/#hire"}>Hire</a>
+    </nav>
+
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="nav-drawer"
+      aria-label="Open menu"
+    >
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <div class="nav-drawer wrap" id="nav-drawer" hidden>
+    <ul class="nav-drawer-links">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              aria-current={"current" in link && link.current ? "page" : undefined}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
       }
+      <li>
+        <a class="nav-cta" href={home ? "#hire" : "/#hire"}>Hire</a>
+      </li>
     </ul>
   </div>
 </header>
 
 <script>
   const header = document.getElementById("site-header");
+  const toggle = header?.querySelector<HTMLButtonElement>(".nav-toggle");
+  const drawer = document.getElementById("nav-drawer");
+
   if (header) {
     const onScroll = () => {
       header.classList.toggle("is-scrolled", window.scrollY > 12);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  if (toggle && drawer) {
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      drawer.hidden = !open;
+      header?.classList.toggle("is-menu-open", open);
+    };
+
+    toggle.addEventListener("click", () => {
+      setOpen(toggle.getAttribute("aria-expanded") !== "true");
+    });
+
+    drawer.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setOpen(false));
+    });
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setOpen(false);
+    });
   }
 </script>
