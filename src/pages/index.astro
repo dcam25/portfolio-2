@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import { getCollection } from "astro:content";
 import {
   site,
   competencies,
@@ -10,6 +11,19 @@ import {
   projects,
   freelance,
 } from "../data/site";
+
+const latestPosts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+}
 ---
 
 <BaseLayout>
@@ -205,6 +219,45 @@ import {
                     ))}
                   </ul>
                   <span class="project-link">View repo →</span>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="blog">
+      <div class="wrap">
+        <p class="section-label">Writing</p>
+        <h2 class="section-title">Latest from the blog</h2>
+        <p class="section-lead">
+          Practical notes on full-stack delivery, CI/CD, auth, and AI guardrails.{" "}
+          <a href="/blog/">Browse all posts</a>.
+        </p>
+        <div class="home-blog-grid">
+          {
+            latestPosts.map((post) => (
+              <a class="home-blog-card" href={`/blog/${post.id}/`}>
+                {post.data.heroImage && (
+                  <div class="home-blog-media">
+                    <img
+                      src={post.data.heroImage}
+                      alt=""
+                      width="640"
+                      height="360"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                )}
+                <div class="home-blog-body">
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {formatDate(post.data.pubDate)}
+                  </time>
+                  <h3>{post.data.title}</h3>
+                  <p>{post.data.description}</p>
+                  <span class="project-link">Read post →</span>
                 </div>
               </a>
             ))

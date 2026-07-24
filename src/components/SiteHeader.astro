@@ -15,7 +15,7 @@ const links = [
   { href: `${prefix}skills`, label: "Skills" },
   { href: `${prefix}projects`, label: "Projects" },
   {
-    href: "/blog",
+    href: home ? "#blog" : "/blog/",
     label: "Blog",
     current: current === "blog",
   },
