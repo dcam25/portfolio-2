@@ -17,6 +17,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const hasHero = Boolean(post.data.heroImage);
 
 function formatDate(date: Date) {
   return date.toLocaleDateString("en-US", {
@@ -31,60 +32,63 @@ function formatDate(date: Date) {
   <SiteHeader current="blog" />
   <main id="main" class="blog-main">
     <article class="post-article">
-      <div class="wrap">
-        <p class="section-label">
-          <a href="/blog">← Blog</a>
-        </p>
-        <header class="post-header">
-          <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
-          <h1 class="section-title">{post.data.title}</h1>
-          <p class="section-lead">{post.data.description}</p>
-          <ul class="post-tags">
+      <header class:list={["post-banner", { "has-hero": hasHero }]}>
+        {
+          hasHero && (
+            <div class="post-banner-bg" aria-hidden="true">
+              <img
+                src={post.data.heroImage}
+                alt=""
+                width="1400"
+                height="788"
+                loading="eager"
+                fetchpriority="high"
+              />
+            </div>
+          )
+        }
+        <div class="wrap post-banner-content">
+          <p class="section-label">
+            <a href="/blog">← Blog</a>
+          </p>
+          <div class="post-header">
+            <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
+            <h1 class="section-title">{post.data.title}</h1>
+            <p class="section-lead">{post.data.description}</p>
+            <ul class="post-tags">
+              {
+                post.data.tags.map((tag) => (
+                  <li>
+                    <span class="skill-tag">{tag}</span>
+                  </li>
+                ))
+              }
+            </ul>
             {
-              post.data.tags.map((tag) => (
-                <li>
-                  <span class="skill-tag">{tag}</span>
-                </li>
-              ))
-            }
-          </ul>
-        </header>
-      </div>
-
-      {
-        post.data.heroImage && (
-          <figure class="post-hero">
-            <img
-              src={post.data.heroImage}
-              alt={post.data.heroAlt ?? ""}
-              width="1400"
-              height="788"
-              loading="eager"
-              fetchpriority="high"
-            />
-            {post.data.heroCredit && (
-              <figcaption>
-                Photo by{" "}
-                {post.data.heroCreditUrl ? (
-                  <a href={post.data.heroCreditUrl} target="_blank" rel="noopener noreferrer">
-                    {post.data.heroCredit}
+              post.data.heroCredit && (
+                <p class="post-banner-credit">
+                  Photo by{" "}
+                  {post.data.heroCreditUrl ? (
+                    <a href={post.data.heroCreditUrl} target="_blank" rel="noopener noreferrer">
+                      {post.data.heroCredit}
+                    </a>
+                  ) : (
+                    post.data.heroCredit
+                  )}{" "}
+                  on{" "}
+                  <a
+                    href="https://unsplash.com/?utm_source=dane_cameron_portfolio&utm_medium=referral"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Unsplash
                   </a>
-                ) : (
-                  post.data.heroCredit
-                )}{" "}
-                on{" "}
-                <a
-                  href="https://unsplash.com/?utm_source=dane_cameron_portfolio&utm_medium=referral"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Unsplash
-                </a>
-              </figcaption>
-            )}
-          </figure>
-        )
-      }
+                </p>
+              )
+            }
+          </div>
+        </div>
+      </header>
 
       <div class="wrap prose">
         <Content />

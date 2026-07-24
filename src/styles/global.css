@@ -360,11 +360,54 @@ a {
 }
 
 .post-article {
-  padding: 3rem 0 1rem;
+  padding: 0 0 1rem;
+}
+
+.post-banner {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin-bottom: 2.25rem;
+  border-bottom: 1px solid var(--line);
+  padding: 2.75rem 0 2.5rem;
+  background: radial-gradient(circle at 20% 0%, rgba(61, 214, 184, 0.08), transparent 42%),
+    var(--bg);
+}
+
+.post-banner-bg {
+  position: absolute;
+  inset: -1.5rem;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.post-banner-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(14px) saturate(1.05) brightness(0.55);
+  transform: scale(1.08);
+}
+
+.post-banner.has-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 18, 32, 0.72) 0%,
+    rgba(11, 18, 32, 0.82) 55%,
+    rgba(11, 18, 32, 0.94) 100%
+  );
+}
+
+.post-banner-content {
+  position: relative;
 }
 
 .post-header {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
   max-width: 46rem;
 }
 
@@ -378,43 +421,31 @@ a {
   margin-top: 0.5rem;
 }
 
-.post-header .section-label a {
+.post-header .section-label a,
+.post-banner .section-label a {
   color: var(--accent);
   text-decoration: none;
 }
 
-.post-header .section-label a:hover {
+.post-header .section-label a:hover,
+.post-banner .section-label a:hover {
   text-decoration: underline;
 }
 
-.post-hero {
-  margin: 0 0 2.25rem;
-  width: 100%;
-}
-
-.post-hero img {
-  display: block;
-  width: 100%;
-  max-height: min(52vh, 28rem);
-  object-fit: cover;
-  border-block: 1px solid var(--line);
-}
-
-.post-hero figcaption {
-  width: min(100% - 2rem, var(--max));
-  margin: 0.65rem auto 0;
+.post-banner-credit {
+  margin: 1.15rem 0 0;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   color: var(--muted);
 }
 
-.post-hero figcaption a {
+.post-banner-credit a {
   color: var(--muted);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-.post-hero figcaption a:hover {
+.post-banner-credit a:hover {
   color: var(--accent);
 }
 
