@@ -296,6 +296,7 @@ function formatDate(date: Date) {
         let startedAt = 0;
         let elapsed = 0;
         let playing = false;
+        let hoverPaused = false;
         const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
         const pageSize = () => {
@@ -306,6 +307,8 @@ function formatDate(date: Date) {
         };
 
         const maxIndex = () => Math.max(0, cards.length - pageSize());
+
+        const canAutoplay = () => !reduceMotion && cards.length > pageSize();
 
         const segments = () =>
           Array.from(progressWrap.querySelectorAll<HTMLButtonElement>(".blog-carousel-seg"));
@@ -326,8 +329,6 @@ function formatDate(date: Date) {
             else if (active) setSegmentProgress(i, activeProgress);
             else setSegmentProgress(i, 0);
           });
-          prev.disabled = index <= 0;
-          next.disabled = index >= maxIndex();
         };
 
         const rebuildProgress = () => {
@@ -337,10 +338,12 @@ function formatDate(date: Date) {
             const seg = document.createElement("button");
             seg.type = "button";
             seg.className = "blog-carousel-seg";
-            seg.setAttribute("role", "tab");
             seg.setAttribute("aria-label", `Go to blog slide ${i + 1}`);
             seg.innerHTML = '<span class="blog-carousel-seg-fill" aria-hidden="true"></span>';
-            seg.addEventListener("click", () => goTo(i, true));
+            seg.addEventListener("click", () => {
+              seg.blur();
+              goTo(i, true);
+            });
             progressWrap.appendChild(seg);
           }
         };
@@ -355,6 +358,13 @@ function formatDate(date: Date) {
           }
         };
 
+        const advance = () => {
+          const max = maxIndex();
+          // Full round: after the last segment, reset the bar row and loop to start
+          if (index >= max) goTo(0, true);
+          else goTo(index + 1, true);
+        };
+
         const tick = (now: number) => {
           if (!playing) return;
           const progress = Math.min(1, (elapsed + (now - startedAt)) / DURATION);
@@ -362,26 +372,26 @@ function formatDate(date: Date) {
           if (progress >= 1) {
             elapsed = 0;
             startedAt = 0;
-            if (index >= maxIndex()) goTo(0, true);
-            else goTo(index + 1, true);
+            advance();
             return;
           }
           raf = requestAnimationFrame(tick);
         };
 
-        const start = () => {
-          stop();
-          if (reduceMotion || cards.length <= pageSize()) {
-            syncProgress(reduceMotion ? 1 : 0);
+        const start = (force = false) => {
+          if ((!force && hoverPaused) || !canAutoplay()) {
+            if (!playing) syncProgress(Math.min(1, elapsed / DURATION || 0));
             return;
           }
+          stop();
           playing = true;
           startedAt = performance.now();
           raf = requestAnimationFrame(tick);
         };
 
         const goTo = (nextIndex: number, restartTimer = false) => {
-          index = Math.max(0, Math.min(nextIndex, maxIndex()));
+          const max = maxIndex();
+          index = ((nextIndex % (max + 1)) + (max + 1)) % (max + 1);
           const card = cards[index];
           if (!card) return;
           track.scrollTo({
@@ -389,11 +399,11 @@ function formatDate(date: Date) {
             behavior: reduceMotion ? "auto" : "smooth",
           });
           if (restartTimer) {
-            const paused = root.matches(":hover") || Boolean(root.querySelector(":focus-within"));
             stop();
             elapsed = 0;
             syncProgress(0);
-            if (!paused) start();
+            // Always resume after a click/step, even if the pointer is still over the carousel
+            start(true);
           } else {
             syncProgress(0);
           }
@@ -401,8 +411,14 @@ function formatDate(date: Date) {
 
         const step = (dir: number) => goTo(index + dir, true);
 
-        prev.addEventListener("click", () => step(-1));
-        next.addEventListener("click", () => step(1));
+        prev.addEventListener("click", () => {
+          (document.activeElement as HTMLElement | null)?.blur?.();
+          step(-1);
+        });
+        next.addEventListener("click", () => {
+          (document.activeElement as HTMLElement | null)?.blur?.();
+          step(1);
+        });
 
         track.addEventListener("keydown", (event) => {
           if (event.key === "ArrowLeft") {
@@ -435,7 +451,7 @@ function formatDate(date: Date) {
               if (nextIndex !== index) {
                 index = nextIndex;
                 elapsed = 0;
-                startedAt = playing ? performance.now() : 0;
+                if (playing) startedAt = performance.now();
                 syncProgress(0);
               }
             }, 60);
@@ -443,21 +459,21 @@ function formatDate(date: Date) {
           { passive: true },
         );
 
-        root.addEventListener("mouseenter", stop);
-        root.addEventListener("mouseleave", start);
-        root.addEventListener("focusin", stop);
-        root.addEventListener("focusout", (event) => {
-          if (!root.contains(event.relatedTarget as Node | null)) start();
+        root.addEventListener("mouseenter", () => {
+          hoverPaused = true;
+          stop();
+        });
+        root.addEventListener("mouseleave", () => {
+          hoverPaused = false;
+          start();
         });
 
         window.addEventListener("resize", () => {
-          const wasPlaying = playing;
           stop();
           rebuildProgress();
           index = Math.min(index, maxIndex());
           goTo(index, false);
-          if (wasPlaying) start();
-          else syncProgress(0);
+          if (!hoverPaused) start();
         });
 
         rebuildProgress();

@@ -1137,6 +1137,7 @@ section {
   border: none;
   background: transparent;
   cursor: pointer;
+  border-radius: 999px;
 }
 
 .blog-carousel-seg::before {
@@ -1147,6 +1148,7 @@ section {
   top: 50%;
   height: 0.2rem;
   transform: translateY(-50%);
+  border-radius: 999px;
   background: color-mix(in srgb, var(--muted) 40%, transparent);
 }
 
@@ -1157,6 +1159,7 @@ section {
   width: 0%;
   height: 0.2rem;
   transform: translateY(-50%);
+  border-radius: 999px;
   background: var(--accent);
   pointer-events: none;
   will-change: width;
