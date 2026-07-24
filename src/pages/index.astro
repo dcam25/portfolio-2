@@ -290,14 +290,21 @@ function formatDate(date: Date) {
 
       if (root && track && prev && next && progressWrap) {
         const cards = Array.from(track.querySelectorAll<HTMLElement>(".home-blog-card"));
-        const DURATION = 5500;
+        const DURATION = 6500;
+        const SLIDE_MS = 780;
         let index = 0;
         let raf = 0;
+        let slideRaf = 0;
         let startedAt = 0;
         let elapsed = 0;
         let playing = false;
         let hoverPaused = false;
+        let sliding = false;
         const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+        const easeInOutCubic = (t: number) =>
+          t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
         const pageSize = () => {
           const width = track.clientWidth;
@@ -307,7 +314,6 @@ function formatDate(date: Date) {
         };
 
         const maxIndex = () => Math.max(0, cards.length - pageSize());
-
         const canAutoplay = () => !reduceMotion && cards.length > pageSize();
 
         const segments = () =>
@@ -315,7 +321,9 @@ function formatDate(date: Date) {
 
         const setSegmentProgress = (i: number, value: number) => {
           const fill = segments()[i]?.querySelector<HTMLElement>(".blog-carousel-seg-fill");
-          if (fill) fill.style.width = `${Math.max(0, Math.min(1, value)) * 100}%`;
+          if (fill) {
+            fill.style.transform = `translateY(-50%) scaleX(${Math.max(0, Math.min(1, value))})`;
+          }
         };
 
         const syncProgress = (activeProgress = 0) => {
@@ -358,18 +366,53 @@ function formatDate(date: Date) {
           }
         };
 
+        const animateScrollTo = (targetLeft: number) =>
+          new Promise<void>((resolve) => {
+            if (reduceMotion) {
+              track.scrollLeft = targetLeft;
+              resolve();
+              return;
+            }
+            if (slideRaf) cancelAnimationFrame(slideRaf);
+            const from = track.scrollLeft;
+            const delta = targetLeft - from;
+            if (Math.abs(delta) < 1) {
+              resolve();
+              return;
+            }
+            sliding = true;
+            root.classList.add("is-sliding");
+            track.classList.add("is-animating");
+            const start = performance.now();
+
+            const frame = (now: number) => {
+              const t = Math.min(1, (now - start) / SLIDE_MS);
+              track.scrollLeft = from + delta * easeInOutCubic(t);
+              if (t < 1) {
+                slideRaf = requestAnimationFrame(frame);
+              } else {
+                sliding = false;
+                slideRaf = 0;
+                track.classList.remove("is-animating");
+                root.classList.remove("is-sliding");
+                resolve();
+              }
+            };
+            slideRaf = requestAnimationFrame(frame);
+          });
+
         const advance = () => {
-          const max = maxIndex();
-          // Full round: after the last segment, reset the bar row and loop to start
-          if (index >= max) goTo(0, true);
+          if (index >= maxIndex()) goTo(0, true);
           else goTo(index + 1, true);
         };
 
         const tick = (now: number) => {
           if (!playing) return;
-          const progress = Math.min(1, (elapsed + (now - startedAt)) / DURATION);
-          syncProgress(progress);
-          if (progress >= 1) {
+          const raw = Math.min(1, (elapsed + (now - startedAt)) / DURATION);
+          // Ease the visible fill so the bar doesn't feel linear/harsh
+          const eased = easeOutCubic(raw);
+          syncProgress(eased);
+          if (raw >= 1) {
             elapsed = 0;
             startedAt = 0;
             advance();
@@ -389,27 +432,27 @@ function formatDate(date: Date) {
           raf = requestAnimationFrame(tick);
         };
 
-        const goTo = (nextIndex: number, restartTimer = false) => {
+        const goTo = async (nextIndex: number, restartTimer = false) => {
           const max = maxIndex();
           index = ((nextIndex % (max + 1)) + (max + 1)) % (max + 1);
           const card = cards[index];
           if (!card) return;
-          track.scrollTo({
-            left: card.offsetLeft - track.offsetLeft,
-            behavior: reduceMotion ? "auto" : "smooth",
-          });
+          const target = card.offsetLeft - track.offsetLeft;
           if (restartTimer) {
             stop();
             elapsed = 0;
             syncProgress(0);
-            // Always resume after a click/step, even if the pointer is still over the carousel
-            start(true);
           } else {
             syncProgress(0);
           }
+          await animateScrollTo(target);
+          if (restartTimer) start(true);
         };
 
-        const step = (dir: number) => goTo(index + dir, true);
+        const step = (dir: number) => {
+          if (sliding) return;
+          goTo(index + dir, true);
+        };
 
         prev.addEventListener("click", () => {
           (document.activeElement as HTMLElement | null)?.blur?.();
@@ -435,6 +478,7 @@ function formatDate(date: Date) {
         track.addEventListener(
           "scroll",
           () => {
+            if (sliding) return;
             window.clearTimeout(scrollTick);
             scrollTick = window.setTimeout(() => {
               const left = track.scrollLeft;
@@ -454,7 +498,7 @@ function formatDate(date: Date) {
                 if (playing) startedAt = performance.now();
                 syncProgress(0);
               }
-            }, 60);
+            }, 80);
           },
           { passive: true },
         );
@@ -470,6 +514,10 @@ function formatDate(date: Date) {
 
         window.addEventListener("resize", () => {
           stop();
+          if (slideRaf) cancelAnimationFrame(slideRaf);
+          sliding = false;
+          track.classList.remove("is-animating");
+          root.classList.remove("is-sliding");
           rebuildProgress();
           index = Math.min(index, maxIndex());
           goTo(index, false);

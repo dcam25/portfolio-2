@@ -1039,10 +1039,15 @@ section {
   gap: 1.5rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   padding-bottom: 0.35rem;
   scrollbar-width: none;
   outline: none;
+}
+
+.blog-carousel-track.is-animating {
+  scroll-snap-type: none;
+  pointer-events: none;
 }
 
 .blog-carousel-track::-webkit-scrollbar {
@@ -1055,6 +1060,17 @@ section {
   text-decoration: none;
   min-width: 0;
   scroll-snap-align: start;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity 0.55s var(--ease),
+    transform 0.55s var(--ease);
+  will-change: opacity, transform;
+}
+
+.blog-carousel.is-sliding .home-blog-card {
+  opacity: 0.78;
+  transform: translate3d(0, 4px, 0);
 }
 
 .home-blog-media {
@@ -1070,11 +1086,11 @@ section {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.45s var(--ease);
+  transition: transform 0.7s var(--ease);
 }
 
 .home-blog-card:hover .home-blog-media img {
-  transform: scale(1.04);
+  transform: scale(1.045);
 }
 
 .home-blog-body {
@@ -1156,17 +1172,18 @@ section {
   position: absolute;
   left: 0;
   top: 50%;
-  width: 0%;
+  width: 100%;
   height: 0.2rem;
-  transform: translateY(-50%);
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: left center;
   border-radius: 999px;
   background: var(--accent);
   pointer-events: none;
-  will-change: width;
+  will-change: transform;
 }
 
 .blog-carousel-seg.is-complete .blog-carousel-seg-fill {
-  width: 100%;
+  transform: translateY(-50%) scaleX(1);
 }
 
 .blog-carousel-seg:hover::before,
