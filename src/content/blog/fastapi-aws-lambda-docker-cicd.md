@@ -3,6 +3,10 @@ title: "FastAPI on AWS Lambda: Docker, ECR, and a CI path that survives cold sta
 description: "Notes on shipping Python FastAPI services serverless with Mangum or container images — what breaks in CI, and how to keep RAG or API workloads production-shaped."
 pubDate: 2026-05-28
 tags: ["FastAPI", "Python", "AWS Lambda", "Docker", "ECR", "GitHub Actions"]
+heroImage: "/blog/fastapi-aws-lambda-docker-cicd.jpg"
+heroAlt: "Shipping containers suggesting containerized deploys"
+heroCredit: "Ian Taylor"
+heroCreditUrl: "https://unsplash.com/@iandtaylor?utm_source=dane_cameron_portfolio&utm_medium=referral"
 ---
 
 Python APIs show up everywhere in my stack notes: **FastAPI**, Django, Flask. For bursty internal tools and AI helpers, **AWS Lambda** is often cheaper than a always-on ECS service — if you respect Lambda’s constraints.

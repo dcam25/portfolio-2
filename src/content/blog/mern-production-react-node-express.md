@@ -3,6 +3,10 @@ title: "MERN in production: React, Node, Express, and when to add SQL"
 description: "Shipping MongoDB + Express + React + Node apps with TypeScript, CI/CD, Docker, and clear rules for when PostgreSQL/MySQL still belong in the design."
 pubDate: 2026-04-08
 tags: ["MERN", "React", "Node.js", "Express", "MongoDB", "TypeScript", "Docker"]
+heroImage: "/blog/mern-production-react-node-express.jpg"
+heroAlt: "Person coding on a laptop"
+heroCredit: "Arnold Francisca"
+heroCreditUrl: "https://unsplash.com/@arnoldfrancisca?utm_source=dane_cameron_portfolio&utm_medium=referral"
 ---
 
 **MERN** roles still show up constantly. The production bar is not “can you scaffold Create React App + Express” — it is whether the stack stays operable when analytics, governance, and cloud deploys enter the chat.

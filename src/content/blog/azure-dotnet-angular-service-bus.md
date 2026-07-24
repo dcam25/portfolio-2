@@ -3,6 +3,10 @@ title: "Azure full-stack delivery: .NET, Angular, and Service Bus patterns"
 description: "Hands-on IC notes on C# microservices, Angular UIs, Azure Service Bus, Terraform, and GitHub Actions — plus AI in the workflow with review gates."
 pubDate: 2026-05-15
 tags: ["Azure", "C#", ".NET", "Angular", "Service Bus", "Terraform", "GitHub Actions"]
+heroImage: "/blog/azure-dotnet-angular-service-bus.jpg"
+heroAlt: "Earth from orbit with a network-like glow"
+heroCredit: "NASA"
+heroCreditUrl: "https://unsplash.com/@nasa?utm_source=dane_cameron_portfolio&utm_medium=referral"
 ---
 
 Plenty of full-stack roles are **Azure**-first: **C# /.NET** APIs, **Angular** (or React) clients, messaging, and CI that a distributed team can trust.

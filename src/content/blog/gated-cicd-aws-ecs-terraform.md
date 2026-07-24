@@ -3,6 +3,10 @@ title: "Gated CI/CD on AWS ECS with Terraform and GitHub Actions"
 description: "How I keep React and API releases boring: Terraform for the platform, GitHub Actions for promotion, OIDC instead of long-lived keys, and rollback when deploys fail."
 pubDate: 2026-06-12
 tags: ["CI/CD", "GitHub Actions", "AWS", "ECS", "Terraform", "Docker"]
+heroImage: "/blog/gated-cicd-aws-ecs-terraform.jpg"
+heroAlt: "Data center corridor lined with server racks"
+heroCredit: "Taylor Vick"
+heroCreditUrl: "https://unsplash.com/@tvick?utm_source=dane_cameron_portfolio&utm_medium=referral"
 ---
 
 Shipping a React frontend and a C# or FastAPI backend is the easy part. Keeping **staging and production identical**, with safe promotions and fast feedback, is where most teams lose time.

@@ -3,6 +3,10 @@ title: "SQL Server performance for React apps: indexes, contracts, and Redis"
 description: "How I keep customer-facing UIs snappy when the source of truth is SQL Server — schema design, query tuning, and when Redis belongs in front of hot paths."
 pubDate: 2026-04-18
 tags: ["SQL Server", "React", "C#", "ASP.NET Core", "Redis", "Performance"]
+heroImage: "/blog/sql-server-react-performance-redis.jpg"
+heroAlt: "Network cables in a server rack"
+heroCredit: "Jordan Harrison"
+heroCreditUrl: "https://unsplash.com/@jordanharrison?utm_source=dane_cameron_portfolio&utm_medium=referral"
 ---
 
 A polished **React** screen still feels slow if the **SQL Server** path behind it is wrong. On full-stack work with **C# / ASP.NET Core** APIs, most “frontend performance” tickets I inherit end up as data-shape or indexing problems.

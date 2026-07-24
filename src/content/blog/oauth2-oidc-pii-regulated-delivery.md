@@ -3,6 +3,10 @@ title: "OAuth2, OIDC, and PII: shipping trust-sensitive React and API features"
 description: "Practical auth and data-handling habits for healthcare-, fintech-, and identity-adjacent products — RBAC, validation at the edge, and SOC2-friendly change control."
 pubDate: 2026-03-22
 tags: ["OAuth2", "OIDC", "RBAC", "PII", "SOC2", "Security", "React"]
+heroImage: "/blog/oauth2-oidc-pii-regulated-delivery.jpg"
+heroAlt: "Credit card and lock suggesting secure auth"
+heroCredit: "Towfiqu barbhuiya"
+heroCreditUrl: "https://unsplash.com/@towfiqubarbhuiya?utm_source=dane_cameron_portfolio&utm_medium=referral"
 ---
 
 Sensitive workflows (background checks, clinical ops, payments-adjacent flows) fail quietly when auth is bolted on late. I treat **OAuth2 / OIDC**, **JWT**, and **RBAC** as product features, not afterthoughts.

@@ -3,6 +3,10 @@ title: "React + Django REST Framework: full-stack Python that scales"
 description: "Hooks, DRF, PostgreSQL, and OWASP-minded defaults — how I ship React UIs and Python APIs with tests, idempotency, and staff-level code review habits."
 pubDate: 2026-06-28
 tags: ["React", "Python", "Django", "DRF", "PostgreSQL", "OWASP", "TypeScript"]
+heroImage: "/blog/react-django-drf-postgresql.jpg"
+heroAlt: "Desk with dual monitors and laptop"
+heroCredit: "Christopher Gower"
+heroCreditUrl: "https://unsplash.com/@cgower?utm_source=dane_cameron_portfolio&utm_medium=referral"
 ---
 
 When a role centers on **React** and **Python / Django / DRF**, I write for the same production bar I use on .NET stacks: clear API contracts, honest SQL, and security defaults that survive concurrent load.

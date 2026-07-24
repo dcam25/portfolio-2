@@ -35,21 +35,37 @@ function formatDate(date: Date) {
           posts.map((post) => (
             <li>
               <a class="post-card" href={`/blog/${post.id}/`}>
-                <div class="post-card-meta">
-                  <time datetime={post.data.pubDate.toISOString()}>
-                    {formatDate(post.data.pubDate)}
-                  </time>
-                  <span class="post-card-arrow" aria-hidden="true">→</span>
+                {post.data.heroImage && (
+                  <div class="post-card-media">
+                    <img
+                      src={post.data.heroImage}
+                      alt=""
+                      width="640"
+                      height="360"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                )}
+                <div class="post-card-body">
+                  <div class="post-card-meta">
+                    <time datetime={post.data.pubDate.toISOString()}>
+                      {formatDate(post.data.pubDate)}
+                    </time>
+                    <span class="post-card-arrow" aria-hidden="true">
+                      →
+                    </span>
+                  </div>
+                  <h2>{post.data.title}</h2>
+                  <p>{post.data.description}</p>
+                  <ul class="post-tags">
+                    {post.data.tags.slice(0, 5).map((tag) => (
+                      <li>
+                        <span class="skill-tag">{tag}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h2>{post.data.title}</h2>
-                <p>{post.data.description}</p>
-                <ul class="post-tags">
-                  {post.data.tags.slice(0, 5).map((tag) => (
-                    <li>
-                      <span class="skill-tag">{tag}</span>
-                    </li>
-                  ))}
-                </ul>
               </a>
             </li>
           ))

@@ -3,6 +3,10 @@ title: "Supabase RLS for operator dashboards that replace spreadsheet chaos"
 description: "React, TypeScript, Tailwind, and Supabase row-level security — shipping internal tools with auth, edge functions, and business-user feedback loops."
 pubDate: 2026-06-20
 tags: ["Supabase", "PostgreSQL", "RLS", "React", "TypeScript", "Tailwind", "Vercel"]
+heroImage: "/blog/supabase-rls-operator-dashboards.jpg"
+heroAlt: "Analytics dashboard charts on a laptop"
+heroCredit: "Luke Chesser"
+heroCreditUrl: "https://unsplash.com/@lukechesser?utm_source=dane_cameron_portfolio&utm_medium=referral"
 ---
 
 Internal tools fail when every role can see every row. **Supabase** on **PostgreSQL** is a strong fit for operator dashboards — if you treat **row-level security (RLS)** as the product, not an afterthought.

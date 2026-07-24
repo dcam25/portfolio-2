@@ -3,6 +3,10 @@ title: "ASP.NET Core Web API: clean architecture that stays shippable"
 description: "How I structure C# /.NET Core services with DI, middleware, async/await, and SQL Server so enterprise APIs stay testable under real product pressure."
 pubDate: 2026-07-18
 tags: ["C#", "ASP.NET Core", ".NET", "Web API", "SQL Server", "Clean Architecture"]
+heroImage: "/blog/aspnet-core-web-api-clean-architecture.jpg"
+heroAlt: "Dark code editor on a monitor"
+heroCredit: "Clément Hélardot"
+heroCreditUrl: "https://unsplash.com/@clemhlrdt?utm_source=dane_cameron_portfolio&utm_medium=referral"
 ---
 
 Enterprise hiring still filters hard on **C#**, **.NET Core**, and **ASP.NET Web API**. The question behind the buzzwords is simpler: can you keep a service readable when features, auth, and SQL all grow at once?

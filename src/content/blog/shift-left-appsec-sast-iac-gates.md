@@ -3,6 +3,10 @@ title: "Shift-left AppSec: SAST, IaC scans, and severity-tiered CI gates"
 description: "How I embed Checkov/tfsec-class scanning and SAST into GitHub Actions so high-severity misconfigs die before merge — without freezing the team."
 pubDate: 2026-06-05
 tags: ["AppSec", "SAST", "GitHub Actions", "Terraform", "OWASP", "SOC2", "Security"]
+heroImage: "/blog/shift-left-appsec-sast-iac-gates.jpg"
+heroAlt: "Padlock resting on a laptop keyboard"
+heroCredit: "FlyD"
+heroCreditUrl: "https://unsplash.com/@flyd?utm_source=dane_cameron_portfolio&utm_medium=referral"
 ---
 
 Product security that only happens in a late review becomes a bottleneck. The pattern that scales is **SSDLC in CI**: automated discovery, severity-tiered gates, and paved-road defaults developers actually use.

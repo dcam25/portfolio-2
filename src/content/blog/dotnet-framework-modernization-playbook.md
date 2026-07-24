@@ -3,6 +3,10 @@ title: "Modernizing .NET Framework estates without a big-bang rewrite"
 description: "Practical Framework-to-modern .NET migration: versioned APIs, SQL Server correctness, feature flags, canaries, and AI-assisted refactors with real guardrails."
 pubDate: 2026-07-10
 tags: [".NET", "C#", "Modernization", "SQL Server", "Azure", "CI/CD", "AI"]
+heroImage: "/blog/dotnet-framework-modernization-playbook.jpg"
+heroAlt: "Laptop with code on a wooden desk"
+heroCredit: "James Harrison"
+heroCreditUrl: "https://unsplash.com/@jhd?utm_source=dane_cameron_portfolio&utm_medium=referral"
 ---
 
 Greenfield demos are easy. The resumes that stick for **.NET modernization** roles talk about large codebases: legacy **ASP.NET / .NET Framework** services, tangled boundaries, and SQL that still has to be correct on Monday morning.

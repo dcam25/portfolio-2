@@ -3,6 +3,10 @@ title: "Agentic AI in SaaS backends: Python, .NET, and human-in-the-loop"
 description: "Building agent features for finance-adjacent SaaS — tool isolation, evals, transactional SQL, and quality gates so agents assist without owning production alone."
 pubDate: 2026-04-30
 tags: ["Agentic AI", "Python", "C#", ".NET", "SaaS", "RAG", "Fintech"]
+heroImage: "/blog/agentic-ai-saas-python-dotnet.jpg"
+heroAlt: "Abstract AI neural network visual"
+heroCredit: "Growtika"
+heroCreditUrl: "https://unsplash.com/@growtika?utm_source=dane_cameron_portfolio&utm_medium=referral"
 ---
 
 “We use AI” is not a feature. For **Python** and **C# /.NET** SaaS backends — especially finance- and reconciliation-adjacent products — agentic workflows only belong in production when isolation, evals, and human review are part of the design.

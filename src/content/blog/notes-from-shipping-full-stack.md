@@ -3,6 +3,10 @@ title: "Notes from shipping full-stack software"
 description: "Practical write-ups on CI/CD, AWS, React/Next.js, SQL Server, auth, and AI guardrails — the same keywords that show up across my resumes for healthcare, fintech, and ecommerce work."
 pubDate: 2026-07-01
 tags: ["Full Stack", "React", "C#", "AWS", "CI/CD", "Healthcare", "Fintech"]
+heroImage: "/blog/notes-from-shipping-full-stack.jpg"
+heroAlt: "Laptop screen with programming code"
+heroCredit: "Kevin Canlas"
+heroCreditUrl: "https://unsplash.com/@kp?utm_source=dane_cameron_portfolio&utm_medium=referral"
 ---
 
 This blog is where I unpack the work behind Senior Full Stack delivery — not framework hype, but the habits that keep **React / Next.js** UIs, **C# / ASP.NET Core** and **FastAPI** APIs, and **SQL Server** data paths reliable in production.
