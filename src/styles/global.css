@@ -1119,29 +1119,61 @@ section {
   transform: translateX(3px);
 }
 
-.blog-carousel-dots {
+.blog-carousel-progress {
   display: flex;
   justify-content: center;
-  gap: 0.45rem;
-  margin-top: 1.25rem;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 1.35rem auto 0;
+  width: min(100%, 34rem);
 }
 
-.blog-carousel-dot {
-  width: 0.45rem;
-  height: 0.45rem;
-  padding: 0;
+.blog-carousel-seg {
+  position: relative;
+  flex: 1 1 0;
+  height: 0.2rem;
+  min-width: 0;
+  padding: 0.55rem 0;
   border: none;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--muted) 45%, transparent);
+  background: transparent;
   cursor: pointer;
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
 }
 
-.blog-carousel-dot.is-active {
+.blog-carousel-seg::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 0.2rem;
+  transform: translateY(-50%);
+  background: color-mix(in srgb, var(--muted) 40%, transparent);
+}
+
+.blog-carousel-seg-fill {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0%;
+  height: 0.2rem;
+  transform: translateY(-50%);
   background: var(--accent);
-  transform: scale(1.25);
+  pointer-events: none;
+  will-change: width;
+}
+
+.blog-carousel-seg.is-complete .blog-carousel-seg-fill {
+  width: 100%;
+}
+
+.blog-carousel-seg:hover::before,
+.blog-carousel-seg:focus-visible::before {
+  background: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.blog-carousel-seg:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 3px;
 }
 
 @media (max-width: 980px) {

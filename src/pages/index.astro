@@ -276,7 +276,7 @@ function formatDate(date: Date) {
               ))
             }
           </div>
-          <div class="blog-carousel-dots" data-blog-dots></div>
+          <div class="blog-carousel-progress" data-blog-progress role="tablist" aria-label="Carousel progress"></div>
         </div>
       </div>
     </section>
@@ -286,12 +286,16 @@ function formatDate(date: Date) {
       const track = document.querySelector<HTMLElement>("[data-blog-track]");
       const prev = document.querySelector<HTMLButtonElement>("[data-blog-prev]");
       const next = document.querySelector<HTMLButtonElement>("[data-blog-next]");
-      const dotsWrap = document.querySelector<HTMLElement>("[data-blog-dots]");
+      const progressWrap = document.querySelector<HTMLElement>("[data-blog-progress]");
 
-      if (root && track && prev && next && dotsWrap) {
+      if (root && track && prev && next && progressWrap) {
         const cards = Array.from(track.querySelectorAll<HTMLElement>(".home-blog-card"));
+        const DURATION = 5500;
         let index = 0;
-        let timer: number | undefined;
+        let raf = 0;
+        let startedAt = 0;
+        let elapsed = 0;
+        let playing = false;
         const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
         const pageSize = () => {
@@ -303,30 +307,80 @@ function formatDate(date: Date) {
 
         const maxIndex = () => Math.max(0, cards.length - pageSize());
 
-        const rebuildDots = () => {
-          dotsWrap.innerHTML = "";
-          const pages = maxIndex() + 1;
-          for (let i = 0; i < pages; i++) {
-            const dot = document.createElement("button");
-            dot.type = "button";
-            dot.className = "blog-carousel-dot";
-            dot.setAttribute("aria-label", `Go to blog slide ${i + 1}`);
-            dot.addEventListener("click", () => goTo(i));
-            dotsWrap.appendChild(dot);
-          }
+        const segments = () =>
+          Array.from(progressWrap.querySelectorAll<HTMLButtonElement>(".blog-carousel-seg"));
+
+        const setSegmentProgress = (i: number, value: number) => {
+          const fill = segments()[i]?.querySelector<HTMLElement>(".blog-carousel-seg-fill");
+          if (fill) fill.style.width = `${Math.max(0, Math.min(1, value)) * 100}%`;
         };
 
-        const syncDots = () => {
-          const dots = Array.from(dotsWrap.querySelectorAll(".blog-carousel-dot"));
-          dots.forEach((dot, i) => {
-            dot.classList.toggle("is-active", i === index);
-            dot.setAttribute("aria-current", i === index ? "true" : "false");
+        const syncProgress = (activeProgress = 0) => {
+          segments().forEach((seg, i) => {
+            const complete = i < index;
+            const active = i === index;
+            seg.classList.toggle("is-complete", complete);
+            seg.classList.toggle("is-active", active);
+            seg.setAttribute("aria-current", active ? "true" : "false");
+            if (complete) setSegmentProgress(i, 1);
+            else if (active) setSegmentProgress(i, activeProgress);
+            else setSegmentProgress(i, 0);
           });
           prev.disabled = index <= 0;
           next.disabled = index >= maxIndex();
         };
 
-        const goTo = (nextIndex: number) => {
+        const rebuildProgress = () => {
+          progressWrap.innerHTML = "";
+          const pages = maxIndex() + 1;
+          for (let i = 0; i < pages; i++) {
+            const seg = document.createElement("button");
+            seg.type = "button";
+            seg.className = "blog-carousel-seg";
+            seg.setAttribute("role", "tab");
+            seg.setAttribute("aria-label", `Go to blog slide ${i + 1}`);
+            seg.innerHTML = '<span class="blog-carousel-seg-fill" aria-hidden="true"></span>';
+            seg.addEventListener("click", () => goTo(i, true));
+            progressWrap.appendChild(seg);
+          }
+        };
+
+        const stop = () => {
+          playing = false;
+          if (raf) cancelAnimationFrame(raf);
+          raf = 0;
+          if (startedAt) {
+            elapsed += performance.now() - startedAt;
+            startedAt = 0;
+          }
+        };
+
+        const tick = (now: number) => {
+          if (!playing) return;
+          const progress = Math.min(1, (elapsed + (now - startedAt)) / DURATION);
+          syncProgress(progress);
+          if (progress >= 1) {
+            elapsed = 0;
+            startedAt = 0;
+            if (index >= maxIndex()) goTo(0, true);
+            else goTo(index + 1, true);
+            return;
+          }
+          raf = requestAnimationFrame(tick);
+        };
+
+        const start = () => {
+          stop();
+          if (reduceMotion || cards.length <= pageSize()) {
+            syncProgress(reduceMotion ? 1 : 0);
+            return;
+          }
+          playing = true;
+          startedAt = performance.now();
+          raf = requestAnimationFrame(tick);
+        };
+
+        const goTo = (nextIndex: number, restartTimer = false) => {
           index = Math.max(0, Math.min(nextIndex, maxIndex()));
           const card = cards[index];
           if (!card) return;
@@ -334,10 +388,18 @@ function formatDate(date: Date) {
             left: card.offsetLeft - track.offsetLeft,
             behavior: reduceMotion ? "auto" : "smooth",
           });
-          syncDots();
+          if (restartTimer) {
+            const paused = root.matches(":hover") || Boolean(root.querySelector(":focus-within"));
+            stop();
+            elapsed = 0;
+            syncProgress(0);
+            if (!paused) start();
+          } else {
+            syncProgress(0);
+          }
         };
 
-        const step = (dir: number) => goTo(index + dir);
+        const step = (dir: number) => goTo(index + dir, true);
 
         prev.addEventListener("click", () => step(-1));
         next.addEventListener("click", () => step(1));
@@ -369,39 +431,37 @@ function formatDate(date: Date) {
                   closest = i;
                 }
               });
-              index = Math.min(closest, maxIndex());
-              syncDots();
+              const nextIndex = Math.min(closest, maxIndex());
+              if (nextIndex !== index) {
+                index = nextIndex;
+                elapsed = 0;
+                startedAt = playing ? performance.now() : 0;
+                syncProgress(0);
+              }
             }, 60);
           },
           { passive: true },
         );
 
-        const stop = () => {
-          if (timer) window.clearInterval(timer);
-          timer = undefined;
-        };
-
-        const start = () => {
-          stop();
-          if (reduceMotion || cards.length <= pageSize()) return;
-          timer = window.setInterval(() => {
-            if (index >= maxIndex()) goTo(0);
-            else step(1);
-          }, 5500);
-        };
-
         root.addEventListener("mouseenter", stop);
         root.addEventListener("mouseleave", start);
         root.addEventListener("focusin", stop);
-        root.addEventListener("focusout", start);
-
-        window.addEventListener("resize", () => {
-          rebuildDots();
-          goTo(Math.min(index, maxIndex()));
+        root.addEventListener("focusout", (event) => {
+          if (!root.contains(event.relatedTarget as Node | null)) start();
         });
 
-        rebuildDots();
-        goTo(0);
+        window.addEventListener("resize", () => {
+          const wasPlaying = playing;
+          stop();
+          rebuildProgress();
+          index = Math.min(index, maxIndex());
+          goTo(index, false);
+          if (wasPlaying) start();
+          else syncProgress(0);
+        });
+
+        rebuildProgress();
+        goTo(0, false);
         start();
       }
     </script>
