@@ -12,7 +12,33 @@ export const site = {
     "I ship production SaaS end-to-end: React and Next.js (TypeScript) on the front, Node.js / Python / C# /.NET APIs in the middle, SQL and caching behind them, with cloud-native CI/CD and DevSecOps so releases stay boring on AWS and Azure. Hands-on Senior Full Stack Engineer with 12 years of ownership from idea through production.",
   about: [
     "I care about system design tradeoffs, Core Web Vitals and accessibility, API contracts, automated tests, and shift-left security - not slide decks. Daily AI-assisted development (Cursor, Claude Code, GitHub Copilot) with human-in-the-loop review, tests, and secure defaults.",
-    "What I own: React/Next.js product UI (SSR, WCAG, Lighthouse), REST/GraphQL APIs with OAuth 2.0 / OIDC / JWT / RBAC, quality gates (Jest, RTL, Cypress/Playwright), DevSecOps (gated CI/CD, Docker/Kubernetes, Terraform/Pulumi, SAST/SCA), and observability that shortens MTTR. Domains: healthcare and digital health (PHI/HIPAA-aware patterns), fintech and payments-adjacent flows, identity/workforce verification, regulated SaaS (SOC 2 / NIST-minded evidence). Open to remote Senior Full Stack roles in the U.S. MS and BS in Computer Science (WGU, Salt Lake City, UT).",
+    "Open to remote Senior Full Stack / Software Engineer roles in the U.S. Product-minded IC focused on secure, measurable delivery. MS and BS in Computer Science (WGU, Salt Lake City, UT).",
+  ],
+  owns: [
+    {
+      title: "Product UI",
+      body: "React, Next.js, TypeScript, SSR/SSG-minded delivery, responsive design, WCAG-minded a11y, Lighthouse / Core Web Vitals.",
+    },
+    {
+      title: "APIs and data",
+      body: "REST and GraphQL, microservices and event-driven paths, PostgreSQL/SQL Server, Redis-style caching, OAuth 2.0 / OIDC / JWT / RBAC.",
+    },
+    {
+      title: "Quality gates",
+      body: "Jest, React Testing Library, Cypress/Playwright, pytest/xUnit-class suites - unit, integration, and e2e in CI.",
+    },
+    {
+      title: "DevSecOps",
+      body: "Gated CI/CD (GitHub Actions, Jenkins, Azure DevOps), Docker/Kubernetes, Terraform/Pulumi IaC, SAST/SCA, secrets hygiene, artifact promotion.",
+    },
+    {
+      title: "Reliability",
+      body: "Observability (logs, metrics, tracing), monitoring/alerting, MTTR reduction, RCA, runbooks, high-availability habits.",
+    },
+    {
+      title: "Domains & GenAI",
+      body: "Healthcare and digital health (PHI/HIPAA-aware), fintech and payments-adjacent flows, identity/workforce verification, regulated SaaS; RAG, agents, guardrails and evals.",
+    },
   ],
   domains: [
     {
@@ -155,23 +181,26 @@ export const experience = [
     role: "Senior Software Engineer",
     company: "Cloudrise",
     location: "Grand Junction, CO (Remote)",
+    context: "Data/cloud security services (SASE, DSPM, privacy) - regulated, outcome-based delivery.",
     dates: "Oct 2023 – Apr 2026",
     bullets: [
       "Shipped React and Next.js / TypeScript product UIs with SSR-minded performance, responsive design, and WCAG-minded accessibility; improved Core Web Vitals / Lighthouse on owned surfaces.",
       "Designed and consumed REST APIs (GraphQL where needed) with Node.js, Python, and C# /.NET over PostgreSQL/SQL Server; applied OAuth 2.0, OIDC, JWT, RBAC, and audit-minded logging for PHI/PII-sensitive paths.",
-      "Owned DevSecOps delivery: gated CI/CD (GitHub Actions), Docker/Kubernetes, Terraform/Pulumi IaC, SAST/SCA, secrets hygiene, and artifact promotion on AWS and Azure.",
-      "Built quality gates (Jest, RTL, Cypress/Playwright) and observability; shortened MTTR with RCA; supported SOC 2 / NIST-minded evidence; shipped practical RAG/agent helpers with guardrails.",
+      "Integrated partner and payments-adjacent third-party APIs with validation, idempotent-minded error handling, and careful data minimization.",
+      "Built quality gates (Jest, RTL, Cypress/Playwright) and owned DevSecOps delivery: gated CI/CD, Docker/Kubernetes, Terraform/Pulumi IaC, SAST/SCA, secrets hygiene, and artifact promotion on AWS and Azure.",
+      "Added observability and runbooks; shortened MTTR with RCA; supported SOC 2 / NIST-minded evidence; shipped practical RAG/agent helpers with guardrails and human review.",
     ],
   },
   {
     role: "Senior Software Engineer",
     company: "HashiCorp",
     location: "San Francisco, CA",
+    context: "Cloud infrastructure SaaS (Terraform, Vault, Consul / HCP era) - high-traffic B2B platform engineering.",
     dates: "May 2020 – Jun 2023",
     bullets: [
-      "Delivered React/TypeScript experiences and Node.js/Python/C# APIs for high-traffic B2B cloud infrastructure SaaS; practiced system design for microservices and event-driven paths.",
-      "Cut hot-path latency about 35% via profiling, caching, and offloading work; strengthened SQL data access with schema design, indexing, and query optimization.",
-      "Shifted security left with SAST and secure defaults in CI (~60% fewer OWASP Top 10 issues on owned codepaths); expanded unit, integration, and frontend tests as release gates.",
+      "Delivered React/TypeScript experiences and Node.js/Python/C# APIs for scalable B2B SaaS; practiced system design for microservices and event-driven / message-queue paths.",
+      "Cut hot-path latency about 35% via profiling, caching, and offloading work; strengthened SQL/NoSQL access with schema design, indexing, and query optimization.",
+      "Expanded automated testing so regressions failed CI before merge; shifted security left with SAST and OAuth 2.0/OIDC (~60% fewer OWASP Top 10 issues on owned codepaths).",
       "Migrated and operated CI/CD and IaC on AWS (Jenkins, GitHub Actions, Docker, Kubernetes, Terraform) to about 99.8% pipeline reliability; mentored juniors with design notes on scalability and API boundaries.",
     ],
   },
@@ -179,9 +208,10 @@ export const experience = [
     role: "Software Engineer",
     company: "Checkr",
     location: "San Francisco, CA",
+    context: "Background-check / identity-verification platform - high-stakes PII and compliance pressure.",
     dates: "Aug 2017 – Feb 2020",
     bullets: [
-      "Built React and Next.js / TypeScript UIs and REST/GraphQL API features for identity and workforce verification journeys under strict validation and privacy pressure.",
+      "Built React and Next.js / TypeScript UIs and REST/GraphQL API features for onboarding-style identity and workforce verification under strict validation.",
       "Raised key-page Lighthouse / Core Web Vitals from about 55 to about 92 via SSR, code splitting, and payload reduction; applied responsive and accessibility-minded UI patterns.",
       "Hardened APIs against malformed/unauthorized input before sensitive stores; helped migrate services to AWS with container-friendly CI/CD; cut MTTR about 45% with better logging and alerts.",
     ],
@@ -190,10 +220,11 @@ export const experience = [
     role: "Systems Administrator",
     company: "Auth0",
     location: "Bellevue, WA",
+    context: "Identity platform infrastructure operations - foundation for secure SDLC habits used as a senior IC today.",
     dates: "Dec 2014 – May 2017",
     bullets: [
-      "Provisioned, patched, and operated Linux fleets for identity production systems (~99.9% uptime on owned hosts) - foundation for secure SDLC and reliability habits used as a senior IC today.",
-      "Built monitoring, alerting, and on-call response; ran backups/restore drills; hardened hosts with least privilege and patch cadence for customer-trust-critical workloads.",
+      "Provisioned, patched, and operated Linux fleets for identity production systems (~99.9% uptime on owned hosts).",
+      "Built monitoring, alerting, and on-call response; ran backups/restore drills; hardened hosts with least privilege and patch cadence.",
       "Automated baselines to reduce snowflake servers; wrote runbooks and partnered on deploy readiness and post-incident retrospectives.",
     ],
   },
@@ -218,7 +249,7 @@ export const projects = [
   {
     name: "PropEdge AI",
     description:
-      "Full-stack B2C-style product with React UI, SQL-backed features, and Stripe Free/Premium tiers.",
+      "Full-stack B2C product with React/TypeScript UI, SQL-backed features, and Stripe Free/Premium tiers - payments-adjacent SaaS patterns.",
     url: "https://github.com/dcam25/PropEdge_AI",
     image: "/projects/propedge-ai.jpg",
     imageAlt: "Desk workspace representing a B2C product and payments stack",
@@ -230,7 +261,7 @@ export const projects = [
   {
     name: "Multi-Tenant Platform",
     description:
-      "React/Next.js, APIs, RBAC, and real-time UI - multi-tenant foundations for SaaS products.",
+      "React/Next.js multi-tenant SaaS foundations with APIs, RBAC, and real-time UI - identity and access patterns hiring managers look for.",
     url: "https://github.com/dcam25/multi-tenant-platform",
     image: "/projects/multi-tenant.jpg",
     imageAlt: "Team collaborating on shared product software",
@@ -242,14 +273,14 @@ export const projects = [
   {
     name: "Nexus AI",
     description:
-      "React/Next.js clients with streaming API backends for generative AI chat - RAG-minded product surface.",
+      "React/Next.js clients with streaming API backends for generative AI chat - RAG-minded product surface with human-in-the-loop review habits.",
     url: "https://github.com/dcam25/Nexus-AI_Nextjs_Nuxtjs_Angular",
     image: "/projects/nexus-ai.jpg",
     imageAlt: "Abstract AI neural network visual",
     imageCredit: "Growtika",
     imageCreditUrl:
       "https://unsplash.com/@growtika?utm_source=dane_cameron_portfolio&utm_medium=referral",
-    tags: ["React", "Next.js", "Streaming", "AI"],
+    tags: ["React", "Next.js", "RAG", "AI"],
   },
 ];
 

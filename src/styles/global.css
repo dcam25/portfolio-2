@@ -710,6 +710,40 @@ section {
   margin: 0 0 1rem;
 }
 
+.owns-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem 1.75rem;
+  margin-top: 2rem;
+}
+
+.own h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+  color: var(--warm);
+}
+
+.own p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  max-width: 24rem;
+}
+
+@media (max-width: 900px) {
+  .owns-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .owns-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .domains-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -870,6 +904,14 @@ section {
 .job-company {
   color: var(--warm);
   font-weight: 500;
+}
+
+.job-context {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  max-width: 36rem;
+  font-style: italic;
 }
 
 .job-dates {

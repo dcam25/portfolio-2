@@ -45,7 +45,7 @@ function formatDate(date: Date) {
           <a class="btn btn-ghost" href={site.links.email}>Email</a>
         </div>
         <div class="meta-bar">
-          <span>Open to full-time & part-time</span>
+          <span>Open to full-time remote roles</span>
           <span>{site.location}</span>
           <a href={site.phoneHref}>{site.phone}</a>
           <a href={site.links.email}>{site.links.emailLabel}</a>
@@ -66,9 +66,19 @@ function formatDate(date: Date) {
     <section id="about">
       <div class="wrap">
         <p class="section-label">About</p>
-        <h2 class="section-title">Secure full-stack SaaS from UI to cloud</h2>
+        <h2 class="section-title">What hiring managers usually mean - and what I own</h2>
         <div class="about-text">
           {site.about.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+        <div class="owns-grid">
+          {
+            site.owns.map((item) => (
+              <article class="own">
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </article>
+            ))
+          }
         </div>
       </div>
     </section>
@@ -110,7 +120,7 @@ function formatDate(date: Date) {
         <h2 class="section-title">Stack hiring managers scan for</h2>
         <p class="section-lead">
           React, Next.js, and TypeScript pinned first - then Node/Python/C#, SQL, DevSecOps,
-          observability, and domain keywords from healthcare and fintech hiring language.
+          observability, testing, and domain keywords from healthcare and fintech hiring language.
         </p>
         <div class="skills-grid">
           {
@@ -150,6 +160,7 @@ function formatDate(date: Date) {
                       {job.company}
                       {job.location ? ` · ${job.location}` : ""}
                     </p>
+                    {job.context && <p class="job-context">{job.context}</p>}
                   </div>
                   <p class="job-dates">{job.dates}</p>
                 </div>
@@ -170,8 +181,8 @@ function formatDate(date: Date) {
         <p class="section-label">Selected work</p>
         <h2 class="section-title">Projects on GitHub</h2>
         <p class="section-lead">
-          B2C and multi-tenant SaaS patterns with React/Next.js, APIs, RBAC, payments, and AI chat -
-          aligned to healthcare, fintech, and identity work. More on{" "}
+          Featured work: PropEdge AI, Multi-Tenant Platform, and Nexus AI - React/Next.js SaaS with
+          APIs, RBAC, payments, and RAG-minded chat. More on{" "}
           <a href={site.links.github} target="_blank" rel="noopener noreferrer">github.com/dcam25</a>.
         </p>
         <div class="projects-grid">
@@ -219,8 +230,8 @@ function formatDate(date: Date) {
             <p class="section-label">Writing</p>
             <h2 class="section-title">Latest from the blog</h2>
             <p class="section-lead home-blog-lead">
-              Practical notes on full-stack delivery, CI/CD, auth, and AI guardrails.{" "}
-              <a href="/blog/">Browse all posts</a>.
+              Notes on CI/CD, DevSecOps, SSR/Core Web Vitals, auth, and AI guardrails - the same
+              themes as the LinkedIn profile. <a href="/blog/">Browse all posts</a>.
             </p>
           </div>
           <div class="blog-carousel-controls" aria-hidden="false">
