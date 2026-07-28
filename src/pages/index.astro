@@ -35,7 +35,18 @@ function formatDate(date: Date) {
         <p class="hero-kicker">{site.location}</p>
         <h1 class="hero-name">{site.name}</h1>
         <p class="hero-title">{site.title} · {site.tagline}</p>
-        <p class="hero-lead">{site.summary}</p>
+        <div class="hero-split">
+          <p class="hero-lead">{site.summary}</p>
+          <div class="hero-aside" aria-label="Focus">
+            <p class="hero-aside-label">Focus</p>
+            <ul class="hero-aside-list">
+              <li>React / Next.js / TypeScript</li>
+              <li>Node.js · Python · C# /.NET</li>
+              <li>Go & Rust ramp · DevSecOps</li>
+              <li>Healthcare & Fintech</li>
+            </ul>
+          </div>
+        </div>
         <div class="cta-row">
           <a class="btn btn-primary" href={site.links.github} target="_blank" rel="noopener noreferrer"
             >GitHub</a
