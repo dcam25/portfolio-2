@@ -69,7 +69,6 @@ export const site = {
   links: {
     github: "https://github.com/dcam25",
     linkedin: "https://www.linkedin.com/in/cameron-swe",
-    guru: "https://www.guru.com/freelancers/dane-cameron",
     email: "mailto:dcamvals25@gmail.com",
     emailLabel: "dcamvals25@gmail.com",
   },
@@ -309,5 +308,5 @@ export const projects = [
 
 export const freelance = {
   headline: "Open to remote Senior Full Stack roles",
-  body: "Product-minded IC focused on secure, measurable delivery across healthcare, fintech, and payments - React, Next.js, TypeScript, Node.js/Python, AWS/Azure, DevSecOps, with a fast Go/Rust ramp for polyglot backend teams. Full-time preferred; freelance via Guru or email.",
+  body: "Product-minded IC focused on secure, measurable delivery across healthcare, fintech, and payments - React, Next.js, TypeScript, Node.js/Python, AWS/Azure, DevSecOps, with a fast Go/Rust ramp for polyglot backend teams. Full-time preferred; reach out by email or LinkedIn.",
 };
