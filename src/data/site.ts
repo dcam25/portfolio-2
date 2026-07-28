@@ -6,8 +6,6 @@ export const site = {
   location: "Dallas, Texas (Remote, USA)",
   phone: "(305) 710-8496",
   phoneHref: "tel:+13057108496",
-  portrait: "/portrait.jpg",
-  portraitAlt: "Dane C Cameron, professional headshot",
   summary:
     "I ship production SaaS end-to-end: React and Next.js (TypeScript) on the front, Node.js / Python / C# /.NET APIs in the middle, SQL and caching behind them, with cloud-native CI/CD and DevSecOps on AWS and Azure. Working familiarity with Go (Golang) and Rust - concurrency, memory-safety, and cloud-native backend patterns - with a fast ramp for polyglot teams (not claiming years of production Go/Rust ownership). Hands-on Senior Full Stack Engineer with 12 years of ownership from idea through production.",
   about: [
