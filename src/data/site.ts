@@ -70,7 +70,7 @@ export const site = {
   ],
   links: {
     github: "https://github.com/dcam25",
-    linkedin: "https://linkedin.com/in/dane-cameron",
+    linkedin: "https://www.linkedin.com/in/cameron-swe",
     guru: "https://www.guru.com/freelancers/dane-cameron",
     email: "mailto:dcamvals25@gmail.com",
     emailLabel: "dcamvals25@gmail.com",

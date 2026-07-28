@@ -5,7 +5,7 @@ Astro portfolio for Senior Full Stack Engineering (C#, React, Next.js, SQL Serve
 ## Links
 
 - [GitHub](https://github.com/dcam25)
-- [LinkedIn](https://linkedin.com/in/dane-cameron)
+- [LinkedIn](https://www.linkedin.com/in/cameron-swe)
 - [Guru](https://www.guru.com/freelancers/dane-cameron)
 
 ## Develop
