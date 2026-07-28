@@ -2,17 +2,17 @@ export const site = {
   name: "Dane C Cameron",
   title: "Senior Full Stack Engineer",
   tagline:
-    "React, Next.js, TypeScript, Node.js · CI/CD, DevSecOps, AWS/Azure · Healthcare & Fintech",
+    "React, TypeScript, Node.js/Python · Go & Rust (ramp) · DevSecOps, AWS · Healthcare & Fintech",
   location: "Dallas, Texas (Remote, USA)",
   phone: "(305) 710-8496",
   phoneHref: "tel:+13057108496",
   portrait: "/portrait.jpg",
   portraitAlt: "Dane C Cameron, professional headshot",
   summary:
-    "I ship production SaaS end-to-end: React and Next.js (TypeScript) on the front, Node.js / Python / C# /.NET APIs in the middle, SQL and caching behind them, with cloud-native CI/CD and DevSecOps so releases stay boring on AWS and Azure. Hands-on Senior Full Stack Engineer with 12 years of ownership from idea through production.",
+    "I ship production SaaS end-to-end: React and Next.js (TypeScript) on the front, Node.js / Python / C# /.NET APIs in the middle, SQL and caching behind them, with cloud-native CI/CD and DevSecOps on AWS and Azure. Working familiarity with Go (Golang) and Rust - concurrency, memory-safety, and cloud-native backend patterns - with a fast ramp for polyglot teams (not claiming years of production Go/Rust ownership). Hands-on Senior Full Stack Engineer with 12 years of ownership from idea through production.",
   about: [
     "I care about system design tradeoffs, Core Web Vitals and accessibility, API contracts, automated tests, and shift-left security - not slide decks. Daily AI-assisted development (Cursor, Claude Code, GitHub Copilot) with human-in-the-loop review, tests, and secure defaults.",
-    "Open to remote Senior Full Stack / Software Engineer roles in the U.S. Product-minded IC focused on secure, measurable delivery. MS and BS in Computer Science (WGU, Salt Lake City, UT).",
+    "Open to remote Senior Full Stack / Software Engineer / backend-polyglot roles in the U.S. Product-minded IC focused on secure, measurable delivery. MS and BS in Computer Science (WGU, Salt Lake City, UT).",
   ],
   owns: [
     {
@@ -24,20 +24,28 @@ export const site = {
       body: "REST and GraphQL, microservices and event-driven paths, PostgreSQL/SQL Server, Redis-style caching, OAuth 2.0 / OIDC / JWT / RBAC.",
     },
     {
+      title: "Polyglot backend ramp",
+      body: "Go/Golang (goroutines, channels, REST/gRPC-aware services, go test) and Rust (ownership/borrowing concepts, Cargo, Tokio-aware async, clippy-minded quality) - familiarity with a fast ramp, not years of production ownership.",
+    },
+    {
       title: "Quality gates",
       body: "Jest, React Testing Library, Cypress/Playwright, pytest/xUnit-class suites - unit, integration, and e2e in CI.",
     },
     {
       title: "DevSecOps",
-      body: "Gated CI/CD (GitHub Actions, Jenkins, Azure DevOps), Docker/Kubernetes, Terraform/Pulumi IaC, SAST/SCA, secrets hygiene, artifact promotion.",
+      body: "Gated CI/CD (GitHub Actions, Jenkins, Azure DevOps), Docker/Kubernetes, Terraform/Pulumi IaC, SAST/SCA, secrets hygiene (Vault-minded), artifact promotion.",
     },
     {
       title: "Reliability",
       body: "Observability (logs, metrics, tracing), monitoring/alerting, MTTR reduction, RCA, runbooks, high-availability habits.",
     },
     {
-      title: "Domains & GenAI",
-      body: "Healthcare and digital health (PHI/HIPAA-aware), fintech and payments-adjacent flows, identity/workforce verification, regulated SaaS; RAG, agents, guardrails and evals.",
+      title: "Domains",
+      body: "Healthcare and digital health (PHI-aware / HIPAA-aware patterns), fintech and payments-adjacent flows, identity/workforce verification, regulated SaaS (SOC 2 / NIST-minded evidence).",
+    },
+    {
+      title: "GenAI product work",
+      body: "RAG, agents, embeddings/vector retrieval, guardrails and evals - treated like production code with human-in-the-loop review.",
     },
   ],
   domains: [
@@ -95,8 +103,11 @@ export const competencies = [
       "Python",
       "C# / .NET",
       "ASP.NET Core",
+      "Go / Golang (ramp)",
+      "Rust (ramp)",
       "REST APIs",
       "GraphQL",
+      "gRPC awareness",
       "Microservices",
       "Event-driven architecture",
       "System design",
@@ -188,6 +199,7 @@ export const experience = [
       "Designed and consumed REST APIs (GraphQL where needed) with Node.js, Python, and C# /.NET over PostgreSQL/SQL Server; applied OAuth 2.0, OIDC, JWT, RBAC, and audit-minded logging for PHI/PII-sensitive paths.",
       "Integrated partner and payments-adjacent third-party APIs with validation, idempotent-minded error handling, and careful data minimization.",
       "Built quality gates (Jest, RTL, Cypress/Playwright) and owned DevSecOps delivery: gated CI/CD, Docker/Kubernetes, Terraform/Pulumi IaC, SAST/SCA, secrets hygiene, and artifact promotion on AWS and Azure.",
+      "Worked in a polyglot backend estate; actively ramping on Go/Golang (concurrency-minded services, REST/gRPC-aware patterns, go test) and Rust (memory-safety / Cargo / async-aware tooling) - primary production depth remains Python/Node/C#.",
       "Added observability and runbooks; shortened MTTR with RCA; supported SOC 2 / NIST-minded evidence; shipped practical RAG/agent helpers with guardrails and human review.",
     ],
   },
@@ -220,7 +232,7 @@ export const experience = [
     role: "Systems Administrator",
     company: "Auth0",
     location: "Bellevue, WA",
-    context: "Identity platform infrastructure operations - foundation for secure SDLC habits used as a senior IC today.",
+    context: "Developer identity platform (authN/authZ at scale). Role = Linux/identity infrastructure operations - not product feature engineering; foundation for secure SDLC habits used as a senior IC today.",
     dates: "Dec 2014 – May 2017",
     bullets: [
       "Provisioned, patched, and operated Linux fleets for identity production systems (~99.9% uptime on owned hosts).",
@@ -299,5 +311,5 @@ export const projects = [
 
 export const freelance = {
   headline: "Open to remote Senior Full Stack roles",
-  body: "Product-minded IC focused on secure, measurable delivery across healthcare, fintech, and payments - React, Next.js, TypeScript, Node.js, AWS/Azure, DevSecOps. Full-time preferred; freelance via Guru or email.",
+  body: "Product-minded IC focused on secure, measurable delivery across healthcare, fintech, and payments - React, Next.js, TypeScript, Node.js/Python, AWS/Azure, DevSecOps, with a fast Go/Rust ramp for polyglot backend teams. Full-time preferred; freelance via Guru or email.",
 };
