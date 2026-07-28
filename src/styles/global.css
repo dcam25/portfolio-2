@@ -720,6 +720,14 @@ section {
   text-decoration: underline;
 }
 
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(12rem, 0.7fr);
+  gap: clamp(1.75rem, 4vw, 3.25rem);
+  align-items: start;
+  margin-bottom: 0.5rem;
+}
+
 .about-text {
   max-width: 42rem;
   color: var(--muted);
@@ -730,11 +738,53 @@ section {
   margin: 0 0 1rem;
 }
 
+.about-text p:last-child {
+  margin-bottom: 0;
+}
+
+.about-aside-label {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.about-aside-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.about-aside-list li {
+  display: grid;
+  gap: 0.15rem;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.about-aside-list span {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
 .owns-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.25rem 1.75rem;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--line);
 }
 
 .own h3 {
@@ -753,6 +803,11 @@ section {
 }
 
 @media (max-width: 900px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
   .owns-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

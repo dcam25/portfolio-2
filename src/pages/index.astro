@@ -68,9 +68,23 @@ function formatDate(date: Date) {
     <section id="about">
       <div class="wrap">
         <p class="section-label">About</p>
-        <h2 class="section-title">What hiring managers usually mean - and what I own</h2>
-        <div class="about-text">
-          {site.about.map((paragraph) => <p>{paragraph}</p>)}
+        <h2 class="section-title">Ownership from idea through production</h2>
+        <p class="section-lead">
+          Full-stack delivery with quality gates and shift-left security - not slide decks.
+        </p>
+        <div class="about-layout">
+          <div class="about-text">
+            {site.about.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+          <aside class="about-aside" aria-label="At a glance">
+            <p class="about-aside-label">At a glance</p>
+            <ul class="about-aside-list">
+              <li><span>Experience</span> 12 years</li>
+              <li><span>Education</span> MS & BS, Computer Science</li>
+              <li><span>Open to</span> Remote Senior Full Stack</li>
+              <li><span>Based</span> Dallas, Texas (USA)</li>
+            </ul>
+          </aside>
         </div>
         <div class="owns-grid">
           {

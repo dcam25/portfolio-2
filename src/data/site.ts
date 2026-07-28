@@ -9,8 +9,8 @@ export const site = {
   summary:
     "I ship production SaaS end-to-end: React and Next.js (TypeScript) on the front, Node.js / Python / C# /.NET APIs in the middle, SQL and caching behind them, with cloud-native CI/CD and DevSecOps on AWS and Azure. Working familiarity with Go (Golang) and Rust - concurrency, memory-safety, and cloud-native backend patterns - with a fast ramp for polyglot teams (not claiming years of production Go/Rust ownership). Hands-on Senior Full Stack Engineer with 12 years of ownership from idea through production.",
   about: [
-    "I care about system design tradeoffs, Core Web Vitals and accessibility, API contracts, automated tests, and shift-left security - not slide decks. Daily AI-assisted development (Cursor, Claude Code, GitHub Copilot) with human-in-the-loop review, tests, and secure defaults.",
-    "Open to remote Senior Full Stack / Software Engineer / backend-polyglot roles in the U.S. Product-minded IC focused on secure, measurable delivery. MS and BS in Computer Science (WGU, Salt Lake City, UT).",
+    "I care about system design tradeoffs, Core Web Vitals and accessibility, API contracts, automated tests, and shift-left security. Daily AI-assisted development (Cursor, Claude Code, GitHub Copilot) with human-in-the-loop review, tests, and secure defaults.",
+    "Product-minded IC focused on secure, measurable delivery across healthcare, fintech, and identity. Open to remote Senior Full Stack / Software Engineer roles in the U.S., including polyglot backend teams with a Go or Rust ramp.",
   ],
   owns: [
     {
