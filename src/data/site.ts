@@ -230,6 +230,19 @@ export const experience = [
   },
 ];
 
+export const certifications = [
+  {
+    title: "Certified by micro1",
+    issuer: "micro1",
+    description: "Outstanding performance during micro1's AI Interview.",
+    date: "July 28, 2026",
+    image: "/certs/micro1-ai-interview.jpg",
+    imageAlt:
+      "micro1 certificate awarded to Dane Cameron for outstanding AI Interview performance",
+    url: "https://micro1-portal-data.s3.amazonaws.com/engineer-certificates/1785198829-14090654-e416-4117-b778-42acad635374.jpg",
+  },
+];
+
 export const education = [
   {
     degree: "Master of Science - Computer Science",

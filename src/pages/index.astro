@@ -7,6 +7,7 @@ import {
   site,
   competencies,
   experience,
+  certifications,
   education,
   projects,
   freelance,
@@ -526,6 +527,37 @@ function formatDate(date: Date) {
         start();
       }
     </script>
+
+    <section id="certifications">
+      <div class="wrap">
+        <p class="section-label">Certifications</p>
+        <h2 class="section-title">Verified credentials</h2>
+        <p class="section-lead">
+          Third-party validation alongside the CS degrees below.
+        </p>
+        <div class="certs-grid">
+          {
+            certifications.map((cert) => (
+              <article class="cert">
+                <a
+                  class="cert-media"
+                  href={cert.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={cert.image} alt={cert.imageAlt} loading="lazy" />
+                </a>
+                <h3>{cert.title}</h3>
+                <p class="cert-meta">
+                  {cert.issuer} · {cert.date}
+                </p>
+                <p class="cert-body">{cert.description}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
 
     <section id="education">
       <div class="wrap">
