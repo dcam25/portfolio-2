@@ -4,6 +4,7 @@ import SiteHeader from "../../components/SiteHeader.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
 import { getCollection } from "astro:content";
 import { site } from "../../data/site";
+import { skillIconUrl } from "../../data/skillIcons";
 
 const posts = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
@@ -61,7 +62,18 @@ function formatDate(date: Date) {
                   <ul class="post-tags">
                     {post.data.tags.slice(0, 5).map((tag) => (
                       <li>
-                        <span class="skill-tag">{tag}</span>
+                        <span class="skill-tag">
+                          <img
+                            class="skill-tag-icon"
+                            src={skillIconUrl(tag)}
+                            alt=""
+                            width="16"
+                            height="16"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                          <span>{tag}</span>
+                        </span>
                       </li>
                     ))}
                   </ul>

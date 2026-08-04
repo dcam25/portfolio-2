@@ -4,6 +4,7 @@ import SiteHeader from "../../components/SiteHeader.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
 import { getCollection, render } from "astro:content";
 import { site } from "../../data/site";
+import { skillIconUrl } from "../../data/skillIcons";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -59,7 +60,18 @@ function formatDate(date: Date) {
               {
                 post.data.tags.map((tag) => (
                   <li>
-                    <span class="skill-tag">{tag}</span>
+                    <span class="skill-tag">
+                      <img
+                        class="skill-tag-icon"
+                        src={skillIconUrl(tag)}
+                        alt=""
+                        width="16"
+                        height="16"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <span>{tag}</span>
+                    </span>
                   </li>
                 ))
               }
