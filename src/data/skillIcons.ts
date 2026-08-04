@@ -92,6 +92,14 @@ const MAP: Record<string, string> = {
   "RAG / embeddings": icon("mdi:database-search", "%23412991"),
   "Agents & guardrails": icon("mdi:robot-outline", "%232f9e44"),
   "Cursor / Copilot / Claude": icon("mdi:creation-outline", "%23D97757"),
+
+  // Project tags
+  Stripe: icon("simple-icons:stripe", "%23635BFF"),
+  RBAC: icon("mdi:account-key-outline"),
+  APIs: icon("mdi:api"),
+  SaaS: icon("mdi:cloud-outline", "%233AA89A"),
+  RAG: icon("mdi:database-search", "%23412991"),
+  AI: icon("mdi:creation-outline", "%23D97757"),
 };
 
 /** Fallback figure icon when a skill has no brand mapping. */
@@ -99,4 +107,24 @@ const FALLBACK = icon("mdi:checkbox-marked-circle-outline", "%233AA89A");
 
 export function skillIconUrl(label: string): string {
   return MAP[label] ?? FALLBACK;
+}
+
+function iconLg(name: string, color = C) {
+  return `https://api.iconify.design/${name}.svg?color=${color}&height=28`;
+}
+
+/** Icons for About → ownership cards (aligned with GitHub profile business figures). */
+const OWN_ICONS: Record<string, string> = {
+  "Product UI": iconLg("simple-icons:react", "%2361DAFB"),
+  "APIs and data": iconLg("mdi:api", "%233AA89A"),
+  "Polyglot backend ramp": iconLg("simple-icons:go", "%2300ADD8"),
+  "Quality gates": iconLg("mdi:test-tube", "%23E33332"),
+  DevSecOps: iconLg("mdi:shield-lock", "%23c45c26"),
+  Reliability: iconLg("mdi:eye-outline", "%233AA89A"),
+  Domains: iconLg("mdi:hospital-box", "%232d8278"),
+  "GenAI product work": iconLg("mdi:robot-outline", "%232f9e44"),
+};
+
+export function ownIconUrl(title: string): string {
+  return OWN_ICONS[title] ?? iconLg("mdi:checkbox-marked-circle-outline", "%233AA89A");
 }

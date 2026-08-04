@@ -12,7 +12,7 @@ import {
   projects,
   freelance,
 } from "../data/site";
-import { skillIconUrl } from "../data/skillIcons";
+import { ownIconUrl, skillIconUrl } from "../data/skillIcons";
 
 const latestPosts = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
@@ -93,7 +93,18 @@ function formatDate(date: Date) {
           {
             site.owns.map((item) => (
               <article class="own">
-                <h3>{item.title}</h3>
+                <div class="own-head">
+                  <img
+                    class="own-icon"
+                    src={ownIconUrl(item.title)}
+                    alt=""
+                    width="28"
+                    height="28"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <h3>{item.title}</h3>
+                </div>
                 <p>{item.body}</p>
               </article>
             ))
@@ -240,7 +251,18 @@ function formatDate(date: Date) {
                   <ul class="project-tags">
                     {project.tags.map((tag) => (
                       <li>
-                        <span class="skill-tag">{tag}</span>
+                        <span class="skill-tag">
+                          <img
+                            class="skill-tag-icon"
+                            src={skillIconUrl(tag)}
+                            alt=""
+                            width="16"
+                            height="16"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                          <span>{tag}</span>
+                        </span>
                       </li>
                     ))}
                   </ul>
