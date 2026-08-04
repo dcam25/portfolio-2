@@ -29,5 +29,7 @@ npm-install.log
 # local tooling / private materials
 /scripts
 /resumes
-/docs
+/docs/
+/interview/
 .venv-resume/
+.venv-pdf/
